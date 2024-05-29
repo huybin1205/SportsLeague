@@ -1,6 +1,7 @@
 ﻿using SportsLeague.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -273,13 +274,61 @@ namespace SportsLeague.Controllers
         {
             using (_db = new SportLeagueContext())
             {
-                var doiBongs = (from quanLyCLBVaGiaiDau in _db.QuanLyCLBVaGiaiDaus
-                                where quanLyCLBVaGiaiDau.MaGiaiDau == maGiaiDau
-                                select quanLyCLBVaGiaiDau).ToList();
+                using (DbContextTransaction transaction = _db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        
 
-                Random random = new Random();
-                doiBongs = doiBongs.OrderBy(x => random.Next()).ToList();
-                return View();
+                        var doiBongs = (from quanLyCLBVaGiaiDau in _db.QuanLyCLBVaGiaiDaus
+                                        where quanLyCLBVaGiaiDau.MaGiaiDau == maGiaiDau
+                                        select quanLyCLBVaGiaiDau).ToList();
+                        if (soLuongBang > doiBongs.Count())
+                            throw new Exception("Số lượng bảng không hợp lệ");
+
+                        Random random = new Random();
+                        doiBongs = doiBongs.OrderBy(x => random.Next()).ToList();
+
+                        for (int i = 0; i < soLuongBang; i++)
+                        {
+                            BangDau bangDau = new BangDau();
+                            bangDau.MaGiaiDau = maGiaiDau;
+                            bangDau.TenBangDau = $"Bảng {i + 1}";
+                            _db.BangDaus.Add(bangDau);
+                        }
+
+
+                        // Phân chia đội bóng vào các bảng
+                        for (int i = 0; i < doiBongs.Count; i++)
+                        {
+                            BangDauVaDoiBong bangDauVaDoiBong = new BangDauVaDoiBong()
+                            {
+                                MaBangDau = (i % soLuongBang) + 1,
+                                MaDoiBong = doiBongs[i].MaCLB
+                            };
+
+                            _db.BangDauVaDoiBongs.Add(bangDauVaDoiBong);
+                        }
+                        _db.SaveChanges();
+
+                        transaction.Commit();
+
+                        return Json(new
+                        {
+                            result = true,
+                            message = "Tạo bảng thành công"
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        return Json(new
+                        {
+                            result = false,
+                            message = "Tạo không thành công"
+                        });
+                    }
+                }
             }
         }
 

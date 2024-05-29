@@ -24,6 +24,8 @@ namespace SportsLeague.Models
         public virtual DbSet<QuanLyDoiBongVaCauThu> QuanLyDoiBongVaCauThus { get; set; }
         public virtual DbSet<QuanLyCLBVaGiaiDau> QuanLyCLBVaGiaiDaus { get; set; }
         public virtual DbSet<LoaiGiaiThuong> LoaiGiaiThuongs { get; set; }
+        public virtual DbSet<BangDau> BangDaus { get; set; }
+        public virtual DbSet<BangDauVaDoiBong> BangDauVaDoiBongs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -86,17 +86,17 @@
                                             <input type="date" class="form-control" name="NgayKetThuc" placeholder="Ngày kết thúc" value="@Model.NgayKetThuc" />
                                         </div>*@
 
-                                        <div class="field margin_0">
-                                            <input class="btn btn-success" style="margin-top: 5px; margin-bottom: 5px" type="button" id="btnCapNhat" value="Cập nhật" />
-                                            <a href="@Url.Action("Index","QLGiaidau")"><span class="btn btn-danger">Quay lại</span></a>
-                                            <input class="btn btn-info" style="margin-top: 5px; margin-bottom: 5px" type="button" id="btnTaoLichThiDau" value="Tạo lịch thi đấu tự động" />
-                                            <a href="@Url.Action("XemBXH","LichThiDau", new { maGiaiDau = Model.MaGiaiDau})"><span class="btn btn-warning">Xem bảng xếp hạng</span></a>
-                                            <a href="@Url.Action("XemDanhHieuCauThu", "LichThiDau", new {maGiaiDau = Model.MaGiaiDau })" class="btn btn-info">Xem Danh Hiệu</a>
-                                            <a href="@Url.Action("XuatFileExcel", "LichThiDau", new {maGiaiDau = Model.MaGiaiDau })" class="btn btn cur-p btn-secondary">Xuất kết quả</a>
-                                            <a title="Xem ma trận giải đấu" href="@Url.Action("XemMaTranGiaiDau", "LichThiDau", new {maGiaiDau = Model.MaGiaiDau })" class="btn btn cur-p btn-outline-primary">Xem ma trận giải đấu</a>
-                                            <a title="Xem poster giải đấu" href="@Url.Action("XuatPosterGiaiDau", new {maGiaiDau = Model.MaGiaiDau })" class="btn btn cur-p btn-outline-secondary">Xem poster giải đấu</a>
-                                            <a title="Tạo giải đấu theo bảng" href="@Url.Action("XuatPosterGiaiDau", new {maGiaiDau = Model.MaGiaiDau })" class="btn btn cur-p btn-outline-secondary">Tạo giải đấu theo bảng</a>
-                                        </div>
+                                    <div class="field margin_0">
+                                        <input class="btn btn-success" style="margin-top: 5px; margin-bottom: 5px" type="button" id="btnCapNhat" value="Cập nhật" />
+                                        <a href="@Url.Action("Index","QLGiaidau")"><span class="btn btn-danger">Quay lại</span></a>
+                                        <input class="btn btn-info" style="margin-top: 5px; margin-bottom: 5px" type="button" id="btnTaoLichThiDau" value="Tạo lịch thi đấu tự động" />
+                                        <a href="@Url.Action("XemBXH","LichThiDau", new { maGiaiDau = Model.MaGiaiDau})"><span class="btn btn-warning">Xem bảng xếp hạng</span></a>
+                                        <a href="@Url.Action("XemDanhHieuCauThu", "LichThiDau", new {maGiaiDau = Model.MaGiaiDau })" class="btn btn-info">Xem Danh Hiệu</a>
+                                        <a href="@Url.Action("XuatFileExcel", "LichThiDau", new {maGiaiDau = Model.MaGiaiDau })" class="btn btn cur-p btn-secondary">Xuất kết quả</a>
+                                        <a title="Xem ma trận giải đấu" href="@Url.Action("XemMaTranGiaiDau", "LichThiDau", new {maGiaiDau = Model.MaGiaiDau })" class="btn btn cur-p btn-outline-primary">Xem ma trận giải đấu</a>
+                                        <a title="Xem poster giải đấu" href="@Url.Action("XuatPosterGiaiDau", new {maGiaiDau = Model.MaGiaiDau })" class="btn btn cur-p btn-outline-secondary">Xem poster giải đấu</a>
+                                        <a title="Tạo giải đấu theo bảng" class="btn btn cur-p btn-outline-secondary">Tạo giải đấu theo bảng</a>
+                                    </div>
 
                                     </fieldset>
                                 </form>
@@ -260,6 +260,49 @@
                 }
             }).always(function () {
                 CloseLoading();
+            });
+        });
+
+        $('a[title="Tạo giải đấu theo bảng"]').click(function () {
+            Swal.fire({
+                title: "Nhập số bảng muốn tạo",
+                input: "text",
+                inputAttributes: {
+                    autocapitalize: "off"
+                },
+                showCancelButton: true,
+                confirmButtonText: "Tạo bảng",
+                cancelButtonText: "Hủy",
+                showLoaderOnConfirm: true,
+                preConfirm: async (soBang) => {
+                    $.ajax({
+                        url: '@Url.Action("TaoLichThiDauTheoBang", "QLGiaidau")',
+                        async: true,
+                        type: "POST",
+                        timeout: 60000,
+                        data: {
+                            maGiaiDau: @Model.MaGiaiDau,
+                            soLuongBang: soBang
+                        }
+                    }).done(function (response, textStatus, jqXHR) {
+                        if (response.result) {
+                            toastr.success(response.message);
+                        } else {
+                            toastr.error(response.message);
+                        }
+
+                    }).fail(function (jqXHR, textStatus, errorThrown) {
+                        if (textStatus === 'timeout') {
+                            funcPrompt('Request time out', '', 'error');
+                        } else {
+                            funcPrompt(textStatus, errorThrown, 'error');
+                        }
+                    }).always(function () {
+                        CloseLoading();
+                    });
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            }).then((result) => {
             });
         });
     });
