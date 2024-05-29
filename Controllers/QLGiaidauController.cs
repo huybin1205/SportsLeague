@@ -278,7 +278,17 @@ namespace SportsLeague.Controllers
                 {
                     try
                     {
-                        
+                        var bangDaus = _db.BangDaus.Where(x=>x.MaGiaiDau == maGiaiDau).ToList();
+                        foreach (var bangDau in bangDaus)
+                        {
+                            var bangDauVaDoiBongs = _db.BangDauVaDoiBongs.Where(x=>x.MaBangDau == bangDau.MaBangDau).ToList();
+                            foreach (var bangDauVaDoiBong in bangDauVaDoiBongs)
+                            {
+                                _db.BangDauVaDoiBongs.Remove(bangDauVaDoiBong);
+                            }
+                            _db.BangDaus.Remove(bangDau);
+                        }
+                        _db.SaveChanges();
 
                         var doiBongs = (from quanLyCLBVaGiaiDau in _db.QuanLyCLBVaGiaiDaus
                                         where quanLyCLBVaGiaiDau.MaGiaiDau == maGiaiDau
@@ -289,21 +299,23 @@ namespace SportsLeague.Controllers
                         Random random = new Random();
                         doiBongs = doiBongs.OrderBy(x => random.Next()).ToList();
 
+                        List<BangDau> bangs = new List<BangDau>();
                         for (int i = 0; i < soLuongBang; i++)
                         {
                             BangDau bangDau = new BangDau();
                             bangDau.MaGiaiDau = maGiaiDau;
                             bangDau.TenBangDau = $"Bảng {i + 1}";
                             _db.BangDaus.Add(bangDau);
+                            bangs.Add(bangDau);
                         }
-
+                        _db.SaveChanges();
 
                         // Phân chia đội bóng vào các bảng
                         for (int i = 0; i < doiBongs.Count; i++)
                         {
                             BangDauVaDoiBong bangDauVaDoiBong = new BangDauVaDoiBong()
                             {
-                                MaBangDau = (i % soLuongBang) + 1,
+                                MaBangDau = bangs[i % soLuongBang].MaBangDau,
                                 MaDoiBong = doiBongs[i].MaCLB
                             };
 

@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container mt-4">
+
+    <div class="container">
+        <div class="center verticle_center">
+            <div class="error_page">
+                <div class="center">
+                    <div class="error_icon" style="margin-top:50px">
+                        <img width="150" height="150" class="img-responsive" src="~/templates/images/logo/logodoibongdep.png" />
+                    </div>
+                </div>
+                <br>
+                <h3>@ViewBag.GiaiDau.TenGiaiDau.ToUpper()</h3>
+                <p>Mùa giải: @ViewBag.GiaiDau.NamThucHien -  Số đội tham gia: @ViewBag.SoLuongDoiBongThamGia</p>
+                <p>Thời gian tổ chức: @ViewBag.GiaiDau.NgayBatDau.ToString("dd/MM/yyy") -  @ViewBag.GiaiDau.NgayKetThuc.ToString("dd/MM/yyy")</p>
+                <div class="center" style="display:grid">
+                    <p style="text-align: center"><b><strong>Đơn vị tổ chức</strong></b></p>
+                    <a class="main_bt" style="margin-bottom: 20px" href="#"><b><strong>@ViewBag.GiaiDau.DonViToChuc</strong></b></a>
+                </div>
+            </div>
+        </div>
+        <div class="row column1">
+            <div class="col-md-12">
+                <div class="white_shd full margin_bottom_30">
+                    <div class="full price_table padding_infor_info">
+                        <div class="center row">
+                            <h3>BẢNG ĐẤU</h3>
+                        </div>
+                        <div class="row">
+                            @foreach (var bangDau in Model)
+                            {
+
+                                <div class="col-md-4">
+                                    <table id="QLGiaidauTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">@bangDau.TenBangDau</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var doiBong in bangDau.DoiBongs)
+                                            {
+                                                <tr>
+                                                    <td><img src="../@doiBong.Logo" style="width: 50px" /></td>
+                                                    <td>@doiBong.TenDoiBong</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+        </div>
+    </div>
+</div>
+
+<!--======================================================================-->
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="DetailsModal" aria-hidden="true" data-backdrop="static">
+    <div id="detailsContainer"></div>
+</div>
+<div class="modal fade" id="deleteModel" tabindex="-1" role="dialog" aria-labelledby="DeleteModel" aria-hidden="true" data-backdrop="static">
+    <div id="deleteContainer"></div>
+</div>

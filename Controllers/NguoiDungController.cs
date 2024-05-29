@@ -29,7 +29,7 @@ namespace SportsLeague.Controllers
                 // Tìm người dùng với tên đăng nhập
                 // FirstOrDefault hàm này trả về NguoiDung nếu tìm thấy, không tìm thấy trả về null
                 var user = _db.NguoiDungs.FirstOrDefault(x => x.TenDangNhap == tenDangNhap);
-                if (user != null)
+                if (user != null && BCrypt.Net.BCrypt.Verify(matKhau, user.MatKhau))
                 {
                     Session["UserLogin"] = user;
                     return RedirectToAction("Index", "Home");
