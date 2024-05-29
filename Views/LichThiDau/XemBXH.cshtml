@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "XemBXH";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    .logo_login {
+        background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+    }
+</style>
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2></h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- invoice section -->
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2>Bảng xếp hạng</h2>
+                </div>
+            </div>
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <table id="LichThiDauTable" class="table table-hover">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th></th>
+                                            <th>Logo</th>
+                                            <th>Tên Đội Bóng</th>
+                                            <th>Số Trận Đã Đá</th>
+                                            <th>Số Trận Thắng</th>
+                                            <th>Số Trận Thua</th>
+                                            <th>Số Trận Hòa</th>
+                                            <th>Số Bàn Thắng</th>
+                                            <th>Số Bàn Thua</th>
+                                            <th>Hiệu Số</th>
+                                            <th>Điểm</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var bhx in Model)
+                                        {
+                                            <tr>
+                                                <td>@bhx.STT</td>
+                                                <td><img width="50" height="50" src="../@bhx.Logo" /></td>
+                                                <td>@bhx.TenDoiBong</td>
+                                                <td>@bhx.SoTranDaThiDau</td>
+                                                <td>@bhx.Thang</td>
+                                                <td>@bhx.Thua</td>
+                                                <td>@bhx.Hoa</td>
+                                                <td>@bhx.BanThang</td>
+                                                <td>@bhx.SoBanThua</td>
+                                                <td>@bhx.HeSo</td>
+                                                <td>@bhx.Diem</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <a class="btn btn-danger" style="margin-bottom: 10px" href="/QLGiaidau/CapNhat?maGiaiDau=@ViewBag.maGiaiDau">Quay lại</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

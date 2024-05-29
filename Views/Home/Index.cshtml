@@ -1,0 +1,376 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row column_title">
+        <div class="col-md-12">
+            <div class="page_title">
+                <h2>Dashboard</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row column1">
+        <div class="col-md-6 col-lg-3">
+            <div class="full counter_section margin_bottom_30">
+                <div class="couter_icon">
+                    <div>
+                        <i class="fa fa-trophy yellow_color"></i>
+                    </div>
+                </div>
+                <div class="counter_no">
+                    <div>
+                        <p class="total_no">@ViewBag.GiaiDau</p>
+                        <p class="head_couter">Giải đấu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="full counter_section margin_bottom_30">
+                <div class="couter_icon">
+                    <div>
+                        <i class="fa fa-users blue1_color"></i>
+                    </div>
+                </div>
+                <div class="counter_no">
+                    <div>
+                        <p class="total_no">@ViewBag.DoiBong</p>
+                        <p class="head_couter">Đội thi đấu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="full counter_section margin_bottom_30">
+                <div class="couter_icon">
+                    <div>
+                        <i class="fa fa-futbol-o green_color"></i>
+                    </div>
+                </div>
+                <div class="counter_no">
+                    <div>
+                        <p class="total_no">@ViewBag.CauThu</p>
+                        <p class="head_couter">Vận động viên</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="full counter_section margin_bottom_30">
+                <div class="couter_icon">
+                    <div>
+                        <i class="fa fa-calendar red_color"></i>
+                    </div>
+                </div>
+                <div class="counter_no">
+                    <div>
+                        <p class="total_no">@ViewBag.LichThiDau</p>
+                        <p class="head_couter">Trận đấu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="row column1 social_media_section">
+            <div class="col-md-6 col-lg-3">
+                <div class="full socile_icons fb margin_bottom_30">
+                    <div class="social_icon">
+                        <i class="fa fa-facebook"></i>
+                    </div>
+                    <div class="social_cont">
+                        <ul>
+                            <li>
+                                <span><strong>35k</strong></span>
+                                <span>Friends</span>
+                            </li>
+                            <li>
+                                <span><strong>128</strong></span>
+                                <span>Feeds</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="full socile_icons tw margin_bottom_30">
+                    <div class="social_icon">
+                        <i class="fa fa-twitter"></i>
+                    </div>
+                    <div class="social_cont">
+                        <ul>
+                            <li>
+                                <span><strong>584k</strong></span>
+                                <span>Followers</span>
+                            </li>
+                            <li>
+                                <span><strong>978</strong></span>
+                                <span>Tweets</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="full socile_icons linked margin_bottom_30">
+                    <div class="social_icon">
+                        <i class="fa fa-linkedin"></i>
+                    </div>
+                    <div class="social_cont">
+                        <ul>
+                            <li>
+                                <span><strong>758+</strong></span>
+                                <span>Contacts</span>
+                            </li>
+                            <li>
+                                <span><strong>365</strong></span>
+                                <span>Feeds</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="full socile_icons google_p margin_bottom_30">
+                    <div class="social_icon">
+                        <i class="fa fa-google-plus"></i>
+                    </div>
+                    <div class="social_cont">
+                        <ul>
+                            <li>
+                                <span><strong>450</strong></span>
+                                <span>Followers</span>
+                            </li>
+                            <li>
+                                <span><strong>57</strong></span>
+                                <span>Circles</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <!-- graph -->
+    @*<div class="row column2 graph margin_bottom_30">
+            <div class="col-md-l2 col-lg-12">
+                <div class="white_shd full">
+                    <div class="full graph_head">
+                        <div class="heading1 margin_0">
+                            <h2>Extra Area Chart</h2>
+                        </div>
+                    </div>
+                    <div class="full graph_revenue">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="content">
+                                    <div class="area_chart">
+                                        <canvas height="120" id="canvas"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <!-- end graph -->
+    <div class="row column3">
+        <!-- testimonial -->
+        <div class="col-md-6">
+            <div class="dark_bg full margin_bottom_30">
+                <div class="full graph_head">
+                    <div class="heading1 margin_0">
+                        <h2>Đội bóng dẫn đầu</h2>
+                    </div>
+                </div>
+                <div class="full graph_revenue">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="content testimonial">
+                                <div id="testimonial_slider" class="carousel slide" data-ride="carousel">
+                                    <!-- Wrapper for carousel items -->
+                                    <div class="carousel-inner">
+                                        <div class="item carousel-item active">
+                                            <div class="img-box"><img src="../@ViewBag.DoiBongDauTien.Logo" alt=""></div>
+                                            <p class="testimonial">@ViewBag.DoiBongDauTien.TenDoiBong</p>
+                                            <p class="overview"><b>@ViewBag.DoiBongDauTien.NguoiQuanLyCLB</b>HLV Trưởng</p>
+                                        </div>
+                                        @foreach (var doiBong in ViewBag.DoiBongs)
+                                        {
+                                            <div class="item carousel-item">
+                                                <div class="img-box"><img src="../@doiBong.Logo" alt=""></div>
+                                                <p class="testimonial">@doiBong.TenDoiBong</p>
+                                                <p class="overview"><b>@doiBong.NguoiQuanLyCLB</b>HLV Trưởng</p>
+                                            </div>
+                                        }
+                                    </div>
+                                    <!-- Carousel controls -->
+                                    <a class="carousel-control left carousel-control-prev" href="#testimonial_slider" data-slide="prev">
+                                        <i class="fa fa-angle-left"></i>
+                                    </a>
+                                    <a class="carousel-control right carousel-control-next" href="#testimonial_slider" data-slide="next">
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end testimonial -->
+        <!-- progress bar -->
+        <div class="col-md-6">
+            <div class="white_shd full margin_bottom_30">
+                <div class="full graph_head">
+                    <div class="heading1 margin_0">
+                        <h2>Đội bóng có tỉ lệ thắng cao</h2>
+                    </div>
+                </div>
+                <div class="full progress_bar_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="progress_bar">
+                                <!-- Skill Bars -->
+                                @if (ViewBag.TiLeThangs != null)
+                                {
+                                    foreach (var tiLeThang in ViewBag.TiLeThangs)
+                                    {
+                                        <span class="skill" style="width:@tiLeThang.TiLeThang%; margin-bottom: 5px"><img width="30" height="30" src="../@tiLeThang.Logo" />  @tiLeThang.TenDoiBong <span class="info_valume">@tiLeThang.TiLeThang %</span></span>
+                                        <div class="progress skill-bar ">
+                                            <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="@tiLeThang.TiLeThang" aria-valuemin="0" aria-valuemax="100" style="width: @tiLeThang.TiLeThang%;">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end progress bar -->
+    </div>
+    <div class="row column4 graph">
+        <div class="col-md-6 margin_bottom_30">
+            <div class="dash_blog">
+                <div class="dash_blog_inner">
+                    <div class="dash_head">
+                        <h3><span><i class="fa fa-calendar"></i> Lịch thi đấu</span><span class="plus_green_bt"><a href="#"><i style="color:white" class="fa fa-calendar-o"></i></a></span></h3>
+                    </div>
+                    <div class="list_cont">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <select name="MaGiaiDau" id="chzn-select" class="form-control" style="width:200px;">
+                                    @foreach (var giaidau in ViewBag.GiaiDaus)
+                                    {
+                                        <option value="@giaidau.MaGiaiDau">@giaidau.TenGiaiDau</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                @{ var dateTime = DateTime.Now.ToString("yyyy-MM-dd"); }
+                                <input type="date" id="thoiGian" class="form-control" value="@dateTime" style="width: 200px" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task_list_main">
+                        <div class="task_list">
+                            <table id="LichThiDauTable" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Giờ thì đấu</th>
+                                        <th>Đội Chủ Nhà</th>
+                                        <th>Tỉ Số</th>
+                                        <th>Đội Khách</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="dash_blog">
+                <div class="dash_blog_inner">
+                    <div class="dash_head">
+                        <h3><span><i class="fa fa-futbol-o"></i> Danh sách vua phá lưới</span><span class="plus_green_bt"><a href="#"><i style="color:white" class="fa fa-star"></i></a></span></h3>
+                    </div>
+                    <div class="list_cont">
+                        <p>Cầu thủ</p>
+                    </div>
+                    <div class="msg_list_main">
+                        <ul class="msg_list">
+                            @foreach (var danhHieu in ViewBag.DanhHieuCauThus)
+                            {
+                                <li>
+                                    <span><img src="../@danhHieu.Avatar" class="img-responsive" alt="#" /></span>
+                                    <span>
+                                        <span class="name_user">@danhHieu.TenCauThu</span>
+                                        <span class="msg_user"><img width="20" height="20" style="height: 30px; width: 30px;" src="../@danhHieu.Logo" /> @danhHieu.TenDoiBong</span>
+                                        <span class="time_ago">@danhHieu.TongSoLuong</span>
+                                    </span>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        //. là class
+        //# là id
+        $("#chzn-select").chosen();
+        var dataTable = $('#LichThiDauTable').DataTable({
+            //dom: 'Bfrtip',
+            //buttons: [
+            //    'excel','print'
+            //],
+            "ajax": {
+                "url": "/LichThiDau/GetDataHome",
+                "type": "Get",
+                "datatype": "json",
+                "data": function (d) {
+                    d.maGiaiDau = $('#chzn-select').val();
+                    d.ngayThiDau = $('#thoiGian').val();
+                }
+            },
+            "columns": [
+                { "data": "GioThiDau" },
+                {
+                    "data": "TenDoiBongChuNha",
+                    "render": function (data, type, row) {
+                        return '<img src="../' + row.LogoDoiChuNha + '" alt="' + data + '" width="30" height="30" /> ' + data;
+                    }
+                },
+                { "data": "TiSo" },
+                {
+                    "data": "TenDoiBongKhach",
+                    "render": function (data, type, row) {
+                        return '<img src="../' + row.LogoDoiKhach + '" alt="' + data + '" width="30" height="30" /> ' + data;
+                    }
+                }
+            ],
+            "language": {
+                "url": 'https://cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json'
+            }
+        });
+
+
+        $('#thoiGian').change(function () {
+            dataTable.ajax.reload();
+        });
+
+        $('#chzn-select').change(function () {
+            dataTable.ajax.reload();
+        });
+    });
+</script>

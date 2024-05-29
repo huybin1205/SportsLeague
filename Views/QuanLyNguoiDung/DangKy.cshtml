@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .logo_login {
+        background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+    }
+</style>
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2>Quản lý thông tin người dùng</h2>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2><i class="fa fa-file-text-o"></i> Đăng ký người dùng</h2>
+                </div>
+            </div>
+
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <form id="formDangKy" action="@Url.Action("DangKy","QuanLyNguoiDung")" method="post" enctype="multipart/form-data">
+                                    <fieldset>
+                                        <div class="field">
+                                            <label class="label_field">Tên đăng nhập</label>
+                                            <input type="text" name="TenDangNhap" class="form-control" placeholder="Tên đăng nhập" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Mật khẩu</label>
+                                            <input type="password" name="MatKhau" class="form-control" placeholder="Mật khẩu" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Họ</label>
+                                            <input type="text" name="Ho" class="form-control" placeholder="Họ" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Tên</label>
+                                            <input type="text" name="Ten" class="form-control" placeholder="Tên" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Ảnh</label>
+                                            <input type="file" id="imgfile" name="Avatar" class="form-control" accept="image/*" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Ngày sinh</label>
+                                            <input type="date" name="NgaySinh" class="form-control" placeholder="Ngày sinh" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Email</label>
+                                            <input type="email" name="Email" class="form-control" placeholder="Email" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Số điện thoại</label>
+                                            <input type="tel" name="SoDienThoai" class="form-control" placeholder="Số điện thoại" />
+                                        </div>
+                                        <div class="field margin_0">
+                                         
+                                            <input class="btn btn-success" style="margin-top: 5px; margin-bottom: 5px"  type="submit" id="btnDangKy" value="Đăng ký" />
+                                            <a href="@Url.Action("Index","QuanLyNguoiDung")"><span class="btn btn-danger">Quay lại</span></a>
+                                        </div>
+                                        <hr />
+                                       
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    @*$(document).ready(function () {
+        $('#btnDangKy').click(function () {
+            // Hiển thị lên cái đang xử lý
+            ShowLoading();
+
+            $.ajax({
+                url: '@Url.Action("QL", "QuanLyNguoiDung")',
+                async: true,
+                type: "POST",
+                timeout: 60000,
+                data: $('#formDangKy').serialize() // public ActionResult DangKy(NguoiDung nguoiDung) => data là nguoiDung
+            }).done(function (response, textStatus, jqXHR) {
+                // Thành công
+                //return Json(new
+                //    {
+                //        result = true,
+                //        message = "Đăng ký thành công"
+                //    }, JsonRequestBehavior.AllowGet);
+
+                if (response.result) {
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    funcPrompt('Request time out', '', 'error');
+                } else {
+                    funcPrompt(textStatus, errorThrown, 'error');
+                }
+            }).always(function () {
+                CloseLoading();
+            });
+        });
+    });*@
+</script>
+

@@ -1,0 +1,303 @@
+﻿@model SportsLeague.Models.DoiBong
+
+@{
+    ViewBag.Title = "CapNhat";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .logo_login {
+        background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+    }
+</style>
+
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2></h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2><i class="fa fa-file-text-o"></i> Cập nhật đội bóng</h2>
+                </div>
+            </div>
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <form id="formCapNhat" action="@Url.Action("CapNhat", "DoiBong")" method="post" enctype="multipart/form-data">
+                                    @Html.HiddenFor(model => model.MaDoiBong)
+                                    <fieldset>
+                                        <div class="field">
+                                            <label class="label_field">Tên Đội Bóng</label>
+                                            <input type="text" class="form-control" name="TenDoiBong" placeholder="Tên đội bóng" value="@Model.TenDoiBong" />
+                                        </div>
+
+                                        @*<div class="field">
+                                                <label class="label_field">Logo</label>
+                                                <input type="text" class="form-control" name="Logo" placeholder="Logo" value="@Model.Logo" />
+                                            </div>*@
+
+                                        <div class="form-group">
+                                            <img src="../@Model.Logo" alt="Logo đội bóng" style="width: 50px" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="file" id="imgfile" name="Logo" accept="image/*" />
+                                        </div>
+
+                                        <div class="field">
+                                            <label class="label_field">Người quản lý clb</label>
+                                            <input type="text" class="form-control" name="NguoiQuanLyCLB" placeholder="Người quản lý cl" value="@Model.NguoiQuanLyCLB" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Đội trưởng</label>
+                                            <input type="text" class="form-control" name="DoiTruong" placeholder="Đội trưởng" value="@Model.DoiTruong" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Vị trí</label>
+                                            <input type="text" class="form-control" name="ViTri" placeholder="Vị trí" value="@Model.ViTri" />
+                                        </div>
+
+                                        <div class="field margin_0">
+                                            <input class="btn btn-success" style="margin-top: 5px; margin-bottom: 5px" type="submit" id="btnCapNhat" value="Cập nhật" />
+                                            @if (ViewBag.IsTeam != 1)
+                                            {
+                                                <a href="@Url.Action("Index","DoiBong")"><span class="btn btn-danger">Quay lại</span></a>
+                                            }
+                                        </div>
+
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="row">
+    <!-- invoice section -->
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2><i class="fa fa-file-text-o"></i> Cầu thủ trong đội bóng</h2>
+                </div>
+            </div>
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <form id="formThemCauThu">
+                                    @Html.HiddenFor(model => model.MaDoiBong)
+                                    <fieldset>
+                                        <div class="field">
+                                            <label class="label_field">Cầu Thủ</label>
+                                            <select name="MaCauThu" id="chzn-select" class="form-control" style="width:200px;">
+                                                @foreach (var cauthu in ViewBag.DsCauThu)
+                                                {
+                                                    <option value="@cauthu.MaCauThu">@cauthu.TenCauThu</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Số áo</label>
+                                            <input type="number" class="form-control" name="SoAo" placeholder="Số Áo" value="" />
+                                        </div>
+                                        <input class="btn btn-danger" id="btnThemCauThu" style="margin-top: 5px" value="Thêm Cầu Thủ" />
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <span>Cầu thủ tham gia</span>
+                                <table id="CauThuTable" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Avatar</th>
+                                            <th>Tên Cầu Thủ</th>
+                                            <th>Quốc Tịch</th>
+                                            <th>Vị Trí Thi Đấu</th>
+                                            <th>Số Áo</th>
+                                            <th>Hành Động</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        @*$('#btnCapNhat').click(function () {
+            // Hiển thị lên cái đang xử lý
+            ShowLoading();
+
+            $.ajax({
+                url: '@Url.Action("CapNhat", "DoiBong")',
+                async: true,
+                type: "POST",
+                timeout: 60000,
+                data: $('#formCapNhat').serialize() // public ActionResult DangKy(NguoiDung nguoiDung) => data là nguoiDung
+            }).done(function (response, textStatus, jqXHR) {
+                // Thành công
+                //return Json(new
+                //    {
+                //        result = true,
+                //        message = "Đăng ký thành công"
+                //    }, JsonRequestBehavior.AllowGet);
+
+                if (response.result) {
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    funcPrompt('Request time out', '', 'error');
+                } else {
+                    funcPrompt(textStatus, errorThrown, 'error');
+                }
+            }).always(function () {
+                CloseLoading();
+            });
+        });*@
+        $('#btnThemCauThu').click(function () {
+            // Hiển thị lên cái đang xử lý
+            ShowLoading();
+
+            $.ajax({
+                url: '@Url.Action("Them", "QuanLyDoiBongVaCauThu")',
+                async: true,
+                type: "POST",
+                timeout: 60000,
+                data: $('#formThemCauThu').serialize() // public ActionResult DangKy(NguoiDung nguoiDung) => data là nguoiDung
+            }).done(function (response, textStatus, jqXHR) {
+                // Thành công
+                //return Json(new
+                //    {
+                //        result = true,
+                //        message = "Đăng ký thành công"
+                //    }, JsonRequestBehavior.AllowGet);
+
+                if (response.result) {
+                    $('#CauThuTable').DataTable().ajax.reload();
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    funcPrompt('Request time out', '', 'error');
+                } else {
+                    funcPrompt(textStatus, errorThrown, 'error');
+                }
+            }).always(function () {
+                CloseLoading();
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    var dtable;
+    $(document).ready(function () {
+        var dtable = $('#CauThuTable').DataTable({
+            //"processing": true,
+            //"serverSide": true,
+            "ajax": {
+                "url": "@Url.Action("GetData", "QuanLyDoiBongVaCauThu", new { maDoiBong = Model.MaDoiBong })",
+                "type": "Get",
+                "datatype": "json"
+            },
+            "columns": [
+
+                {
+                    "data": "Avatar",
+                    "render": function (data, type, row) {
+                        if (data) {
+                            return "<img src='../" + data + "' alt='avatar cầu thủ' style='width: 50px' />";
+                        }
+                    }
+                },
+                { "data": "TenCauThu" },
+                { "data": "QuocTich" },
+                { "data": "ViTriThiDau" },
+                { "data": "SoAo" },
+                {
+                    "data": "MaCauThu", render: function (id, type, row, meta) {
+                        var bHtml = "<div class='btn-group' role='group' aria-label='updaterecord'>";
+                        /*bHtml += "<button1 class='btn btn-primary' onclick=Edit(" + id + ") style='margin-right:5px;'></i>Chỉnh sửa</button1>";*/
+                        bHtml += "<button class='btn btn-danger'  onclick=Xoa(" + id + ") style='margin-right:5px;'>Xóa</button>";
+                        bHtml += "</div>";
+                        return bHtml;
+                    }
+                }
+            ],
+            "language": {
+                "url": 'https://cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json'
+            }
+        });
+
+    });
+
+
+    function Xoa(id) {
+        var result = confirm("Bạn có muốn xóa cầu thủ này?");
+        if (result) {
+            window.location.href = "@Url.Action("Xoa", "QuanLyDoiBongVaCauThu")?maDoiBong=" + @Model.MaDoiBong +"&maCauThu=" + id;
+        }
+    }
+     function Edit(id) {
+        window.location.href = "@Url.Action("CapNhat", "CauThu")?maCauThu=" + id;
+    }
+
+
+</script>
+
+
+
+<script type="text/javascript">
+    $(function () {
+        //. là class
+        //# là id
+        $("#chzn-select").chosen();
+    });
+</script>
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@

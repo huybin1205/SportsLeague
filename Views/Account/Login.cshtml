@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+<style>
+    .logo_login {
+        background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+    }
+</style>
+<div class="container">
+    <div class="center verticle_center full_height">
+        <div class="login_section">
+            <div class="logo_login">
+                <div class="center">
+                    <img width="210" src="~/templates/images//logo/logodoibongdep.png" alt="#" />
+                </div>
+            </div>
+            <div class="login_form">
+                <form action="@Url.Action("Login","Account")" method="post">
+                    <fieldset>
+                        <div class="field">
+                            <label class="label_field">Tên đăng nhập</label>
+                            <input type="text" name="tenDangNhap" placeholder="Tên đăng nhập" />
+                        </div>
+                        <div class="field">
+                            <label class="label_field">Mật khẩu</label>
+                            <input type="password" name="matKhau" placeholder="Mật khẩu" />
+                        </div>
+                        <div class="field">
+                            <label class="label_field hidden">hidden label</label>
+                            <label class="form-check-label"><input type="checkbox" class="form-check-input"> Nhớ mật khẩu</label>
+                            <a class="forgot" href="">Quên mật khẩu?</a>
+                        </div>
+                        <div class="field margin_0">
+                            <label class="label_field hidden">hidden label</label>
+                            @*Khi nhấn submit thì thẻ form sẽ được kích hoạt action="@Url.Action("Login","NguoiDung")"*@
+                            <input class="main_bt" type="submit" value="Đăng nhập" />
+                        </div>
+                        <hr />
+                        <div class="field">
+                            <label class="label_field hidden">hidden label</label>
+                            Bạn chưa có tài khoản? <a href="@Url.Action("DangKy","Account")"><span class="text-primary">Đăng ký</span></a>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

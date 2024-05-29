@@ -1,0 +1,66 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- site icon -->
+    <link rel="icon" href="images/fevicon.png" type="/templates/image/png" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="/templates/css/bootstrap.min.css" />
+    <!-- site css -->
+    <link href="~/templates/css/style.css" rel="stylesheet" />
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/templates/css/responsive.css" />
+    <!-- color css -->
+    <link rel="stylesheet" href="/templates/css/colors.css" />
+    <!-- select bootstrap -->
+    <link rel="stylesheet" href="/templates/css/bootstrap-select.css" />
+    <!-- scrollbar css -->
+    <link rel="stylesheet" href="/templates/css/perfect-scrollbar.css" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="/templates/css/custom.css" />
+    <!-- calendar file css -->
+    <link rel="stylesheet" href="/templates/js/semantic.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+            integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond./templates/js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="inner_page error_404">
+    <div class="full_container">
+        @RenderBody()
+    </div>
+    <!-- jQuery -->
+    @*<script src="/templates/js/jquery.min.js"></script>*@
+    <script src="/templates/js/popper.min.js"></script>
+    <script src="/templates/js/bootstrap.min.js"></script>
+    <!-- wow animation -->
+    <script src="/templates/js/animate.js"></script>
+    <!-- select country -->
+    <script src="/templates/js/bootstrap-select.js"></script>
+    <!-- nice scrollbar -->
+    <script src="/templates/js/perfect-scrollbar.min.js"></script>
+    <script>
+        var ps = new PerfectScrollbar('#sidebar');
+    </script>
+    <!-- custom js -->
+    <script src="/templates/js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+﻿@model SportsLeague.Models.DanhHieuCauThu
+@{
+    ViewBag.Title = "CapNhatDanhHieuCauThu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .logo_login {
+        background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+    }
+</style>
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2></h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- invoice section -->
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2><i class="fa fa-file-text-o"></i> Cập nhật danh hiệu cầu thủ</h2>
+                </div>
+            </div>
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <form id="formCapNhat" action="@Url.Action("CapNhatDanhHieuCauThu", "LichThiDau")" method="post">
+                                    @Html.HiddenFor(model => model.MaDanhHieuCauThu)
+                                    <<fieldset>
+                                        <div class="field">
+                                            <label class="label_field">Lịch Thi Đấu</label>
+                                            <select name="MaLichThiDau" id="chzn-select" class="form-control" style="width:200px;" value="@Model.MaLichThiDau">
+                                                @foreach (var lichthidau in ViewBag.DsLichThiDau)
+                                                {
+                                                    if (lichthidau.MaLichThiDau == Model.MaLichThiDau)
+                                                    {
+                                                        <option value="@lichthidau.MaLichThiDau" selected>@lichthidau.MaLichThiDau</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@lichthidau.MaLichThiDau">@lichthidau.MaLichThiDau</option>
+                                                    }
+                                                    @*<option value="@lichthidau.MaLichThiDau">@lichthidau.MaLichThiDau</option>*@
+                                                }
+                                            </select>
+
+                                        </div>
+
+                                        <div class="field">
+                                            <label class="label_field">Tên Cầu Thủ</label>
+                                            <select name="MaCauThu" id="chzn-select1" class="form-control" style="width:200px;" value="@Model.MaCauThu">
+                                                @foreach (var cauthu in ViewBag.DsCauThu)
+                                                {
+                                                    if (cauthu.MaCauThu == Model.MaCauThu)
+                                                    {
+                                                        <option value="@cauthu.MaCauThu" selected>@cauthu.TenCauThu</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@cauthu.MaCauThu">@cauthu.TenCauThu</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+
+                                        @*<div class="field">
+                                                <label class="label_field">Loại Giải Thưởng</label>
+                                                <input type="text" class="form-control" name="LoaiGiaiThuong" placeholder="Loại Giải Thưởng" value="@Model.LoaiGiaiThuong"/>
+                                            </div>*@
+
+                                        <div class="field">
+                                            <label class="label_field">Loại Giải Thưởng</label>
+                                            <select name="MaLoaiGiaiThuong" id="chzn-select2" class="form-control" style="width:200px;">
+                                                @foreach (var loaigiaithuong in ViewBag.DsLoaiGiaiThuong)
+                                                {
+                                                    if (loaigiaithuong.MaLoaiGiaiThuong == Model.MaLoaiGiaiThuong)
+                                                    {
+                                                        <option value="@loaigiaithuong.MaLoaiGiaiThuong" selected>@loaigiaithuong.TenLoaiGiaiThuong</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@loaigiaithuong.MaLoaiGiaiThuong">@loaigiaithuong.TenLoaiGiaiThuong</option>
+                                                    }
+                                                }
+
+                                            </select>
+                                        </div>
+
+
+                                        <div class="field">
+                                            <label class="label_field">Số Lượng</label>
+                                            <input type="text" class="form-control" name="SoLuong" placeholder="Số Lượng" value="@Model.SoLuong" />
+                                        </div>
+
+
+
+
+                                        <div class="field margin_0">
+                                            <input class="btn btn-success" style="margin-top: 5px; margin-bottom: 5px" type="button" id="btnCapNhat" value="Cập nhật" />
+                                            <a href="@Url.Action("Index","QuanLyDanhHieuCauThu")"><span class="btn btn-danger">Quay lại</span></a>
+                                            @*<a href="@Url.Action("XemDanhHieuCauThu", "LichThiDau", new {maGiaiDau = Model.MaGiaiDau })" class="btn btn-info">Xem Danh Hiệu</a>*@
+
+                                        </div>
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#btnCapNhat').click(function () {
+            // Hiển thị lên cái đang xử lý
+            ShowLoading();
+
+            $.ajax({
+                url: '@Url.Action("CapNhatDanhHieuCauThu", "LichThiDau")',
+                async: true,
+                type: "POST",
+                timeout: 60000,
+                data: $('#formCapNhat').serialize() // public ActionResult DangKy(NguoiDung nguoiDung) => data là nguoiDung
+            }).done(function (response, textStatus, jqXHR) {
+                // Thành công
+                //return Json(new
+                //    {
+                //        result = true,
+                //        message = "Đăng ký thành công"
+                //    }, JsonRequestBehavior.AllowGet);
+
+                if (response.result) {
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    funcPrompt('Request time out', '', 'error');
+                } else {
+                    funcPrompt(textStatus, errorThrown, 'error');
+                }
+            }).always(function () {
+                CloseLoading();
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        //. là class
+        //# là id
+        $("#chzn-select").chosen();
+    });
+</script>
+
+
+<script type="text/javascript">
+    $(function () {
+        //. là class
+        //# là id
+        $("#chzn-select1").chosen();
+        $("#chzn-select2").chosen();
+    });
+</script>

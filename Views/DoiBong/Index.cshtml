@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!--<h3>Danh sach đội bóng</h3>
+<a class="btn btn-success" style="margin-bottom:10px" href="/DoiBong/DangKy"><i class="fa fa-plus"></i>Thêm Mới</a>
+<table id="DoiBongTable" class="display">
+    <thead>
+        <tr>-->
+            @*<th>Mã Đội Bóng</th>*@
+            <!--<th>Logo</th>
+            <th>Tên Đội Bóng</th>
+            <th>Người quản lý CLB</th>
+            <th>Đội trưởng</th>
+            <th>Vị trí </th>
+            <th>Hành Động </th>
+        </tr>
+    </thead>
+</table>-->
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Danh sách đội bóng</h3>
+            <a class="btn btn-success" style="margin-bottom:10px" href="/DoiBong/DangKy"><i class="fa fa-plus"></i>Thêm Mới</a>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table id="DoiBongTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        @*<th>Mã Đội Bóng</th>*@
+                        <th>Logo</th>
+                        <th>Tên Đội Bóng</th>
+                        <th>Người quản lý CLB</th>
+                        <th>Đội trưởng</th>
+                        <th>Vị trí </th>
+                        <th>Hành Động </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+<!--======================================================================-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>-->
+<script type="text/javascript">
+    var dtable;
+    $(document).ready(function () {
+        var dtable = $('#DoiBongTable').DataTable({
+            //"processing": true,
+            //"serverSide": true,
+            "ajax": {
+                "url": "../DoiBong/GetData",
+                "type": "Get",
+                "datatype": "json"
+            },
+            "columns": [
+              /*  { "data": "MaDoiBong" },*/
+                {
+                    "data": "Logo",
+                    "render": function (data, type, row) {
+                        if (data) {
+                            return "<img src='../"+data+"' alt='Logo đội bóng' style='width: 50px' />";
+                        }
+                    }
+                },
+                { "data": "TenDoiBong" },
+                { "data": "NguoiQuanLyCLB" },
+                { "data": "DoiTruong" },
+                { "data": "ViTri" },
+                {
+                    "data": "MaDoiBong", render: function (id/*, type, row , meta*/) {
+                        //return "<button class='btn btn-primary' style='margin-right:5px; onclick=Edit(" + JSON.stringify(row) + ")'>Edit</button>" +
+                        //    "<button class='btn btn-danger' style='margin-right:5px; onclick=Delete(" + JSON.stringify(row) + ")'>Delete</button>";
+                        var bHtml = "<div class='btn-group' role='group' aria-label='updaterecord'>";
+                        bHtml += "<button1 class='btn btn-primary' onclick=Edit(" + id + ") style='margin-right:5px;'></i>Chỉnh sửa</button1>";
+                        bHtml += "<button class='btn btn-danger'  onclick=Xoa(" + id+ ") style='margin-right:5px;'>Xóa</button>";
+                        bHtml += "</div>";
+                        return bHtml;
+                    }
+                }
+
+            ],
+            "language": {
+                "url": 'https://cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json'
+            }
+        });
+    });
+
+
+    function Xoa(id) {
+        var result = confirm("Bạn có muốn xóa đội bóng này?");
+        if (result) {
+            window.location.href = "@Url.Action("Xoa", "DoiBong")?maDoiBong=" + id;
+        }
+    }
+
+    function Edit(id) {
+        window.location.href = "@Url.Action("CapNhat", "DoiBong")?maDoiBong=" + id;
+    }
+
+
+</script>
+

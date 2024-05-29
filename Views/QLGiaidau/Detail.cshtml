@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Chi tiết QL";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .logo_login {
+        background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+    }
+</style>
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2>Quản lý thông tin giải đấu</h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- invoice section -->
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2><i class="fa fa-file-text-o"></i> Quản lý giải đấu</h2>
+                </div>
+            </div>
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <form id="formQL" action="@Url.Action("QL","QLGiaidau")" method="post">
+                                    <fieldset>
+                                        <div class="field">
+                                            <label class="label_field">Tên giải đấu</label>
+                                            <input type="text" class="form-control" name="TenGiaiDau" placeholder="Tên giải đấu" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Năm thực hiện</label>
+                                            <input type="datetime" class="form-control" name="NamThucHien" placeholder="Năm thực hiện" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Đơn vị tổ chức</label>
+                                            <input type="text" class="form-control" name="DonViToChuc" placeholder="Đơn vị tổ chức" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Số lượng đội tham gia</label>
+                                            <input type="number" class="form-control" name="SoLuongDoiThamGia" placeholder="Số lượng đội tham gia" />
+                                        </div>
+
+                                        <div class="field margin_0">
+                                            <input class="btn btn-success" style="margin-top: 5px; margin-bottom: 5px" type="button" id="btnUpdate" value="Cập nhật thông tin" />
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#btnUpdate').click(function () {
+            // Hiển thị lên cái đang xử lý
+            ShowLoading();
+
+            $.ajax({
+                url: '@Url.Action("QL", "QLGiaidau")',
+                async: true,
+                type: "POST",
+                timeout: 60000,
+                data: $('#formQL').serialize() // public ActionResult DangKy(NguoiDung nguoiDung) => data là nguoiDung
+            }).done(function (response, textStatus, jqXHR) {
+                // Thành công
+                //return Json(new
+                //    {
+                //        result = true,
+                //        message = "Đăng ký thành công"
+                //    }, JsonRequestBehavior.AllowGet);
+
+                if (response.result) {
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    funcPrompt('Request time out', '', 'error');
+                } else {
+                    funcPrompt(textStatus, errorThrown, 'error');
+                }
+            }).always(function () {
+                CloseLoading();
+            });
+        });
+    });
+</script>
+

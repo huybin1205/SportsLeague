@@ -1,0 +1,242 @@
+﻿
+@{
+    ViewBag.Title = "XemMaTranGiaiDau";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .logo_login {
+        background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+    }
+</style>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 50%;
+        margin: 20px;
+    }
+
+    th,
+    td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .highlight {
+        background-color: black;
+        color: white;
+    }
+
+    /* CSS cho hover */
+    td:hover:not(.highlight),
+    th:hover:not(.highlight) {
+        background-color: lightgray;
+    }
+
+    /* CSS cho ô được chọn */
+    td.selected,
+    th.selected {
+        background-color: yellow;
+    }
+</style>
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2></h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- invoice section -->
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2><i class="fa fa-file-text-o"></i> Xem ma trận giải đấu</h2>
+                </div>
+            </div>
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <center>
+                                    <form id="formCapNhat" method="post">
+                                        <input type="hidden" id="MaLichThiDau" name="MaLichThiDau" />
+                                        <span id="TenDoiBongChuNha" onclick="onTeamClick('TenDoiBongChuNha')">Đội chủ nhà</span>
+                                        <input type="text" style="width: 30px;" id="TiSoCLBChuNha" name="TiSoCLBChuNha">
+                                        <input type="text" style="width: 30px;" id="TiSoCLBKhach" name="TiSoCLBKhach">
+                                        <span id="TenDoiBongKhach" onclick="onTeamClick('TenDoiBongKhach')">Đội khách</span>
+                                        <button id="btnSave" class="btn btn-success">Cập nhật</button>
+                                        <a href="/QLGiaidau/CapNhat?maGiaiDau=@ViewBag.MaGiaiDau" class="btn btn-danger">Quay lại</a>
+                                    </form>
+                                </center>
+                                <table id="lichThiDauTable" class="table table-bordered">
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Giả sử dữ liệu từ cơ sở dữ liệu được lưu trong một mảng
+     var lichThiDauData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+
+    // Lấy danh sách tên các đội bóng từ dữ liệu
+    var tenDoiBongList = Array.from(new Set([...lichThiDauData.map(item => item.TenDoiBongChuNha), ...lichThiDauData.map(item => item.TenDoiBongKhach)]));
+
+    // Sắp xếp danh sách theo thứ tự alphabet tăng dần
+    tenDoiBongList.sort();
+
+    // Thêm tiêu đề cột
+    var table = document.getElementById("lichThiDauTable");
+    //Lấy hoặc tạo một dòng mới trong phần đầu bảng (thead) và gán vào biến theadRow
+    var theadRow = table.getElementsByTagName('thead')[0].insertRow();
+    theadRow.insertCell();  //them Cột trống ở góc trên bên trái
+    //Vòng lặp qua từng tên đội bóng trong danh sách
+    tenDoiBongList.forEach(function (tenDoiBong) {
+        var th = document.createElement('th');
+        th.textContent = tenDoiBong;
+        theadRow.appendChild(th);
+       // thêm tiêu đề cột cho mỗi đội vào hàng đầu tiên của bảng.
+    });
+
+    // Thêm dữ liệu vào bảng
+    var tbody = table.getElementsByTagName('tbody')[0];
+    //Vòng lặp qua từng tên đội bóng để tạo các dòng và ô (cột) trong tbody.
+    tenDoiBongList.forEach(function (tenDoiBongRow, rowIndex) {
+        var tr = tbody.insertRow();
+        //Gán tên đội bóng chủ nhà vào ô đầu tiên của hàng (dòng).
+        var tdTenDoiBongChuNha = tr.insertCell();
+        tdTenDoiBongChuNha.textContent = tenDoiBongRow;
+        //Vòng lặp qua từng tên đội bóng để tạo ô(cột) trong hàng
+        tenDoiBongList.forEach(function (tenDoiBongColumn, columnIndex) {
+            var td = tr.insertCell();
+            //Lọc dữ liệu từ lichThiDauData để lấy thông tin về trận đấu giữa đội bóng chủ nhà và đội bóng khách.
+            var ltd = lichThiDauData.filter((x) => x.TenDoiBongChuNha == tenDoiBongRow && x.TenDoiBongKhach == tenDoiBongColumn);
+            console.log(ltd);
+
+            if (tenDoiBongRow === tenDoiBongColumn) {
+                td.classList.add("highlight");
+            } else if (ltd.length == 0) {
+                td.textContent = '';
+            } else {
+                td.textContent = ltd[0].TiSoCLBChuNha + " - " + ltd[0].TiSoCLBKhach;
+            }
+
+            // Xử lý sự kiện hover cho dòng và cột
+            td.addEventListener('mouseover', function () {
+                // Đổi màu cho dòng
+                for (var i = 0; i < tenDoiBongList.length; i++) {
+                    if (!table.rows[i + 1].cells[columnIndex + 1].classList.contains("highlight")) {
+                        table.rows[i + 1].cells[columnIndex + 1].style.backgroundColor = 'lightblue';
+                    }
+                }
+                // Đổi màu cho cột
+                for (var i = 0; i < tenDoiBongList.length; i++) {
+                    if (!table.rows[rowIndex + 1].cells[i + 1].classList.contains("highlight")) {
+                        table.rows[rowIndex + 1].cells[i + 1].style.backgroundColor = 'lightblue';
+                    }
+                }
+            });
+
+            td.addEventListener('mouseout', function () {
+                // Đổi lại màu cho dòng
+                for (var i = 0; i < tenDoiBongList.length; i++) {
+                    table.rows[i + 1].cells[columnIndex + 1].style.backgroundColor = '';
+                }
+                // Đổi lại màu cho cột
+                for (var i = 0; i < tenDoiBongList.length; i++) {
+                    table.rows[rowIndex + 1].cells[i + 1].style.backgroundColor = '';
+                }
+            });
+
+            // Xử lý sự kiện click
+            td.addEventListener('click', function () {
+                // Xóa lớp "selected" khỏi tất cả các ô
+                for (var i = 0; i < table.rows.length; i++) {
+                    for (var j = 0; j < table.rows[i].cells.length; j++) {
+                        table.rows[i].cells[j].classList.remove("selected");
+                    }
+                }
+
+                // Thêm lớp "selected" cho ô được nhấn
+                td.classList.add("selected");
+
+                // Cập nhật giá trị của input từ dữ liệu
+                updateInputValues(ltd);
+            });
+        });
+    });
+
+    // Xử lý sự kiện click cho các span
+    function onTeamClick(teamType) {
+        var teamNameSpan = document.getElementById(teamType);
+        var teamName = teamNameSpan.textContent;
+        var ltd = lichThiDauData.filter((x) => x.TenDoiBongChuNha === teamName || x.TenDoiBongKhach === teamName);
+
+        // Cập nhật giá trị của input từ dữ liệu
+        updateInputValues(ltd);
+    }
+
+    // Cập nhật giá trị của input từ dữ liệu
+    function updateInputValues(ltd) {
+        var TiSoCLBChuNhaInput = document.getElementById("TiSoCLBChuNha");
+        var TiSoCLBKhachInput = document.getElementById("TiSoCLBKhach");
+        var TenDoiBongChuNha = document.getElementById("TenDoiBongChuNha");
+        var TenDoiBongKhach = document.getElementById("TenDoiBongKhach");
+        var MaLichThiDau = document.getElementById("MaLichThiDau");
+
+        if (ltd.length > 0) {
+            TiSoCLBChuNhaInput.value = ltd[0].TiSoCLBChuNha;
+            TiSoCLBKhachInput.value = ltd[0].TiSoCLBKhach;
+            TenDoiBongKhach.textContent = ltd[0].TenDoiBongKhach;
+            TenDoiBongChuNha.textContent = ltd[0].TenDoiBongChuNha;
+            MaLichThiDau.value = ltd[0].MaLichThiDau;
+        } else {
+            // Nếu không có dữ liệu, đặt giá trị mặc định
+            TiSoCLBChuNhaInput.value = '';
+            TiSoCLBKhachInput.value = '';
+            TenDoiBongKhach.textContent = 'Đội khách';
+            TenDoiBongChuNha.textContent = 'Đội chủ nhà';
+            MaLichThiDau.value = 0;
+        }
+    }
+
+    $('#btnSave').click(function (e) {
+        // Hiển thị lên cái đang xử lý
+        e.preventDefault(); // Ngăn không cho submit
+        ShowLoading();
+
+        $.ajax({
+            url: '@Url.Action("XemMaTranGiaiDau", "LichThiDau")',
+            async: true,
+            type: "POST",
+            timeout: 60000,
+            data: $('#formCapNhat').serialize()
+        }).done(function (response, textStatus, jqXHR) {
+            if (response.result) {
+                toastr.success(response.message);
+            } else {
+                toastr.error(response.message);
+            }
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            if (textStatus === 'timeout') {
+                funcPrompt('Request time out', '', 'error');
+            } else {
+                funcPrompt(textStatus, errorThrown, 'error');
+            }
+        }).always(function () {
+            CloseLoading();
+        });
+    });
+</script>

@@ -1,0 +1,810 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2B71D64E-CE4C-4E7F-B35C-BA4A9D3AABA8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SportsLeague</RootNamespace>
+    <AssemblyName>SportsLeague</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44349</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.102.1.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>packages\ClosedXML.0.102.1\lib\netstandard2.0\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.16.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>packages\DocumentFormat.OpenXml.2.16.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=7.0.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.7.0.2\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Irony, Version=1.0.11.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
+      <HintPath>packages\Irony.NetCore.1.0.11\lib\net461\Irony.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Packaging.6.0.0\lib\net461\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="XLParser, Version=1.5.2.0, Culture=neutral, PublicKeyToken=63397e1e46bb91b4, processorArchitecture=MSIL">
+      <HintPath>packages\XLParser.1.5.2\lib\net461\XLParser.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Constants\ApplicationConstants.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CauThuController.cs" />
+    <Compile Include="Controllers\DoiBongController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LichThiDauController.cs" />
+    <Compile Include="Controllers\LoaiGiaiThuongController.cs" />
+    <Compile Include="Controllers\NguoiDungController.cs" />
+    <Compile Include="Controllers\PhanQuyenNguoiDungController.cs" />
+    <Compile Include="Controllers\QLGiaidauController.cs" />
+    <Compile Include="Controllers\QuanLyCLBVaGiaiDauController.cs" />
+    <Compile Include="Controllers\QuanLyDanhHieuCauThuController.cs" />
+    <Compile Include="Controllers\QuanLyDoiBongVaCauThuController.cs" />
+    <Compile Include="Controllers\QuanLyGiaiThuongController.cs" />
+    <Compile Include="Controllers\QuanLyNguoiDungController.cs" />
+    <Compile Include="Controllers\VaiTroController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BangXepHang.cs" />
+    <Compile Include="Models\CauThu.cs" />
+    <Compile Include="Models\DanhHieuCauThu.cs" />
+    <Compile Include="Models\DoiBong.cs" />
+    <Compile Include="Models\LichThiDau.cs" />
+    <Compile Include="Models\LoaiGiaiThuong.cs" />
+    <Compile Include="Models\NguoiDung.cs" />
+    <Compile Include="Models\PhanQuyenNguoiDung.cs" />
+    <Compile Include="Models\QuanLyCLBVaGiaiDau.cs" />
+    <Compile Include="Models\QuanLyDoiBongVaCauThu.cs" />
+    <Compile Include="Models\QuanLyGiaiDau.cs" />
+    <Compile Include="Models\QuanLyGiaiThuong.cs" />
+    <Compile Include="Models\SportLeagueContext.cs" />
+    <Compile Include="Models\VaiTro.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\AuthorizeFilterAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.13.2.js" />
+    <Content Include="Scripts\jquery-ui-1.13.2.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="templates\css\animate.css" />
+    <Content Include="templates\css\baguetteBox.min.css" />
+    <Content Include="templates\css\bootstrap-grid.css" />
+    <Content Include="templates\css\bootstrap-grid.min.css" />
+    <Content Include="templates\css\bootstrap-reboot.css" />
+    <Content Include="templates\css\bootstrap-reboot.min.css" />
+    <Content Include="templates\css\bootstrap-select.css" />
+    <Content Include="templates\css\bootstrap.css" />
+    <Content Include="templates\css\bootstrap.min.css" />
+    <Content Include="templates\css\calendar.css" />
+    <Content Include="templates\css\calendar.min.css" />
+    <Content Include="templates\css\color_2.css" />
+    <Content Include="templates\css\custom.css" />
+    <Content Include="templates\css\flaticon.css" />
+    <Content Include="templates\css\font-awesome.css" />
+    <Content Include="templates\css\font-awesome.min.css" />
+    <Content Include="templates\css\jquery.fancybox.css" />
+    <Content Include="templates\css\jquery.fancybox.min.css" />
+    <Content Include="templates\css\owl.carousel.css" />
+    <Content Include="templates\css\perfect-scrollbar.css" />
+    <Content Include="templates\css\responsive.css" />
+    <Content Include="templates\css\semantic.min.css" />
+    <Content Include="templates\css\style.css" />
+    <Content Include="templates\fonts\flaticon.css" />
+    <Content Include="templates\fonts\flaticon.html" />
+    <Content Include="templates\fonts\Flaticon.svg" />
+    <Content Include="templates\fonts\fontawesome-webfont.svg" />
+    <Content Include="templates\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="templates\images\landing_page\stack-of-three-black-hot-stones-spa-salon-vector-16122479.jpg" />
+    <Content Include="templates\images\layout_img\american-express.png" />
+    <Content Include="templates\images\layout_img\bg1.png" />
+    <Content Include="templates\images\layout_img\error.png" />
+    <Content Include="templates\images\layout_img\g1.jpg" />
+    <Content Include="templates\images\layout_img\g10.jpg" />
+    <Content Include="templates\images\layout_img\g11.jpg" />
+    <Content Include="templates\images\layout_img\g12.jpg" />
+    <Content Include="templates\images\layout_img\g13.jpg" />
+    <Content Include="templates\images\layout_img\g14.jpg" />
+    <Content Include="templates\images\layout_img\g15.jpg" />
+    <Content Include="templates\images\layout_img\g16.jpg" />
+    <Content Include="templates\images\layout_img\g2.jpg" />
+    <Content Include="templates\images\layout_img\g3.jpg" />
+    <Content Include="templates\images\layout_img\g4.jpg" />
+    <Content Include="templates\images\layout_img\g5.jpg" />
+    <Content Include="templates\images\layout_img\g6.jpg" />
+    <Content Include="templates\images\layout_img\g7.jpg" />
+    <Content Include="templates\images\layout_img\g8.jpg" />
+    <Content Include="templates\images\layout_img\g9.jpg" />
+    <Content Include="templates\images\layout_img\login_image.jpg" />
+    <Content Include="templates\images\layout_img\map_icon.png" />
+    <Content Include="templates\images\layout_img\mastercard.png" />
+    <Content Include="templates\images\layout_img\msg1.png" />
+    <Content Include="templates\images\layout_img\msg2.png" />
+    <Content Include="templates\images\layout_img\msg3.png" />
+    <Content Include="templates\images\layout_img\msg4.png" />
+    <Content Include="templates\images\layout_img\msg5.png" />
+    <Content Include="templates\images\layout_img\pattern.png" />
+    <Content Include="templates\images\layout_img\pattern_h.png" />
+    <Content Include="templates\images\layout_img\paypal.png" />
+    <Content Include="templates\images\layout_img\user_img.jpg" />
+    <Content Include="templates\images\layout_img\visa.png" />
+    <Content Include="templates\images\logo\logo.png" />
+    <Content Include="templates\images\logo\logodoibongdep.png" />
+    <Content Include="templates\images\logo\logo_black.png" />
+    <Content Include="templates\images\logo\logo_icon.png" />
+    <Content Include="templates\js\analyser.js" />
+    <Content Include="templates\js\animate.js" />
+    <Content Include="templates\js\bootstrap-select.js" />
+    <Content Include="templates\js\bootstrap.bundle.js" />
+    <Content Include="templates\js\bootstrap.bundle.min.js" />
+    <Content Include="templates\js\bootstrap.js" />
+    <Content Include="templates\js\bootstrap.min.js" />
+    <Content Include="templates\js\calendar.js" />
+    <Content Include="templates\js\calendar.min.js" />
+    <Content Include="templates\js\Chart.bundle.js" />
+    <Content Include="templates\js\Chart.bundle.min.js" />
+    <Content Include="templates\js\Chart.js" />
+    <Content Include="templates\js\Chart.min.js" />
+    <Content Include="templates\js\chart_custom_style1.js" />
+    <Content Include="templates\js\chart_custom_style2.js" />
+    <Content Include="templates\js\custom.js" />
+    <Content Include="templates\js\custom_chart.js" />
+    <Content Include="templates\js\jquery-3.3.1.min.js" />
+    <Content Include="templates\js\jquery.fancybox.js" />
+    <Content Include="templates\js\jquery.fancybox.min.js" />
+    <Content Include="templates\js\jquery.min.js" />
+    <Content Include="templates\js\owl.carousel.js" />
+    <Content Include="templates\js\perfect-scrollbar.min.js" />
+    <Content Include="templates\js\popper.min.js" />
+    <Content Include="templates\js\semantic.min.js" />
+    <Content Include="templates\js\settings.html" />
+    <Content Include="templates\js\utils.js" />
+    <Content Include="templates\modules\zingchart-3d.min.js" />
+    <Content Include="templates\modules\zingchart-animation.min.js" />
+    <Content Include="templates\modules\zingchart-api-annotations.min.js" />
+    <Content Include="templates\modules\zingchart-api-rules.min.js" />
+    <Content Include="templates\modules\zingchart-api.min.js" />
+    <Content Include="templates\modules\zingchart-area.min.js" />
+    <Content Include="templates\modules\zingchart-area3d.min.js" />
+    <Content Include="templates\modules\zingchart-boxplot.min.js" />
+    <Content Include="templates\modules\zingchart-bubble.min.js" />
+    <Content Include="templates\modules\zingchart-bubblepie.min.js" />
+    <Content Include="templates\modules\zingchart-calendar.min.js" />
+    <Content Include="templates\modules\zingchart-chord.min.js" />
+    <Content Include="templates\modules\zingchart-core.min.js" />
+    <Content Include="templates\modules\zingchart-csv.min.js" />
+    <Content Include="templates\modules\zingchart-debug.min.js" />
+    <Content Include="templates\modules\zingchart-dragging.min.js" />
+    <Content Include="templates\modules\zingchart-errorbars.min.js" />
+    <Content Include="templates\modules\zingchart-export.min.js" />
+    <Content Include="templates\modules\zingchart-gauge.min.js" />
+    <Content Include="templates\modules\zingchart-grid.min.js" />
+    <Content Include="templates\modules\zingchart-guide.min.js" />
+    <Content Include="templates\modules\zingchart-hbar.min.js" />
+    <Content Include="templates\modules\zingchart-hbar3d.min.js" />
+    <Content Include="templates\modules\zingchart-hbubble.min.js" />
+    <Content Include="templates\modules\zingchart-hbullet.min.js" />
+    <Content Include="templates\modules\zingchart-hfunnel.min.js" />
+    <Content Include="templates\modules\zingchart-history.min.js" />
+    <Content Include="templates\modules\zingchart-hscatter.min.js" />
+    <Content Include="templates\modules\zingchart-legend.min.js" />
+    <Content Include="templates\modules\zingchart-line.min.js" />
+    <Content Include="templates\modules\zingchart-line3d.min.js" />
+    <Content Include="templates\modules\zingchart-maps-afg.min.js" />
+    <Content Include="templates\modules\zingchart-maps-ago.min.js" />
+    <Content Include="templates\modules\zingchart-maps-alb.min.js" />
+    <Content Include="templates\modules\zingchart-maps-and.min.js" />
+    <Content Include="templates\modules\zingchart-maps-are.min.js" />
+    <Content Include="templates\modules\zingchart-maps-arg.min.js" />
+    <Content Include="templates\modules\zingchart-maps-arm.min.js" />
+    <Content Include="templates\modules\zingchart-maps-aus.min.js" />
+    <Content Include="templates\modules\zingchart-maps-aut.min.js" />
+    <Content Include="templates\modules\zingchart-maps-aze.min.js" />
+    <Content Include="templates\modules\zingchart-maps-bdi.min.js" />
+    <Content Include="templates\modules\zingchart-maps-bel.min.js" />
+    <Content Include="templates\modules\zingchart-maps-ben.min.js" />
+    <Content Include="templates\modules\zingchart-maps-bfa.min.js" />
+    <Content Include="templates\modules\zingchart-maps-bgr.min.js" />
+    <Content Include="templates\modules\zingchart-maps-bih.min.js" />
+    <Content Include="templates\modules\zingchart-maps-blr.min.js" />
+    <Content Include="templates\modules\zingchart-maps-bol.min.js" />
+    <Content Include="templates\modules\zingchart-maps-bra.min.js" />
+    <Content Include="templates\modules\zingchart-maps-brn.min.js" />
+    <Content Include="templates\modules\zingchart-maps-btn.min.js" />
+    <Content Include="templates\modules\zingchart-maps-bwa.min.js" />
+    <Content Include="templates\modules\zingchart-maps-caf.min.js" />
+    <Content Include="templates\modules\zingchart-maps-can.min.js" />
+    <Content Include="templates\modules\zingchart-maps-che.min.js" />
+    <Content Include="templates\modules\zingchart-maps-chl.min.js" />
+    <Content Include="templates\modules\zingchart-maps-chn.min.js" />
+    <Content Include="templates\modules\zingchart-maps-civ.min.js" />
+    <Content Include="templates\modules\zingchart-maps-cmr.min.js" />
+    <Content Include="templates\modules\zingchart-maps-cod.min.js" />
+    <Content Include="templates\modules\zingchart-maps-cog.min.js" />
+    <Content Include="templates\modules\zingchart-maps-col.min.js" />
+    <Content Include="templates\modules\zingchart-maps-cri.min.js" />
+    <Content Include="templates\modules\zingchart-maps-cub.min.js" />
+    <Content Include="templates\modules\zingchart-maps-cyp.min.js" />
+    <Content Include="templates\modules\zingchart-maps-cze.min.js" />
+    <Content Include="templates\modules\zingchart-maps-deu.min.js" />
+    <Content Include="templates\modules\zingchart-maps-dnk.min.js" />
+    <Content Include="templates\modules\zingchart-maps-ecu.min.js" />
+    <Content Include="templates\modules\zingchart-maps-egy.min.js" />
+    <Content Include="templates\modules\zingchart-maps-esp.min.js" />
+    <Content Include="templates\modules\zingchart-maps-espL2.min.js" />
+    <Content Include="templates\modules\zingchart-maps-est.min.js" />
+    <Content Include="templates\modules\zingchart-maps-eth.min.js" />
+    <Content Include="templates\modules\zingchart-maps-fin.min.js" />
+    <Content Include="templates\modules\zingchart-maps-fra.min.js" />
+    <Content Include="templates\modules\zingchart-maps-fraL2.min.js" />
+    <Content Include="templates\modules\zingchart-maps-gab.min.js" />
+    <Content Include="templates\modules\zingchart-maps-gbr.min.js" />
+    <Content Include="templates\modules\zingchart-maps-gbrL2.min.js" />
+    <Content Include="templates\modules\zingchart-maps-geojson.min.js" />
+    <Content Include="templates\modules\zingchart-maps-gha.min.js" />
+    <Content Include="templates\modules\zingchart-maps-gmb.min.js" />
+    <Content Include="templates\modules\zingchart-maps-gnb.min.js" />
+    <Content Include="templates\modules\zingchart-maps-grc.min.js" />
+    <Content Include="templates\modules\zingchart-maps-gtm.min.js" />
+    <Content Include="templates\modules\zingchart-maps-guf.min.js" />
+    <Content Include="templates\modules\zingchart-maps-guy.min.js" />
+    <Content Include="templates\modules\zingchart-maps-hrv.min.js" />
+    <Content Include="templates\modules\zingchart-maps-hun.min.js" />
+    <Content Include="templates\modules\zingchart-maps-ind.min.js" />
+    <Content Include="templates\modules\zingchart-maps-irl.min.js" />
+    <Content Include="templates\modules\zingchart-maps-irn.min.js" />
+    <Content Include="templates\modules\zingchart-maps-isl.min.js" />
+    <Content Include="templates\modules\zingchart-maps-isr.min.js" />
+    <Content Include="templates\modules\zingchart-maps-ita.min.js" />
+    <Content Include="templates\modules\zingchart-maps-jpn.min.js" />
+    <Content Include="templates\modules\zingchart-maps-kaz.min.js" />
+    <Content Include="templates\modules\zingchart-maps-ken.min.js" />
+    <Content Include="templates\modules\zingchart-maps-kor.min.js" />
+    <Content Include="templates\modules\zingchart-maps-kwt.min.js" />
+    <Content Include="templates\modules\zingchart-maps-lao.min.js" />
+    <Content Include="templates\modules\zingchart-maps-lbr.min.js" />
+    <Content Include="templates\modules\zingchart-maps-lie.min.js" />
+    <Content Include="templates\modules\zingchart-maps-ltu.min.js" />
+    <Content Include="templates\modules\zingchart-maps-lux.min.js" />
+    <Content Include="templates\modules\zingchart-maps-lva.min.js" />
+    <Content Include="templates\modules\zingchart-maps-mda.min.js" />
+    <Content Include="templates\modules\zingchart-maps-mex.min.js" />
+    <Content Include="templates\modules\zingchart-maps-mkd.min.js" />
+    <Content Include="templates\modules\zingchart-maps-mne.min.js" />
+    <Content Include="templates\modules\zingchart-maps-moz.min.js" />
+    <Content Include="templates\modules\zingchart-maps-nam.min.js" />
+    <Content Include="templates\modules\zingchart-maps-ncl.min.js" />
+    <Content Include="templates\modules\zingchart-maps-nga.min.js" />
+    <Content Include="templates\modules\zingchart-maps-nld.min.js" />
+    <Content Include="templates\modules\zingchart-maps-nor.min.js" />
+    <Content Include="templates\modules\zingchart-maps-nzl.min.js" />
+    <Content Include="templates\modules\zingchart-maps-omn.min.js" />
+    <Content Include="templates\modules\zingchart-maps-pak.min.js" />
+    <Content Include="templates\modules\zingchart-maps-pan.min.js" />
+    <Content Include="templates\modules\zingchart-maps-per.min.js" />
+    <Content Include="templates\modules\zingchart-maps-phl.min.js" />
+    <Content Include="templates\modules\zingchart-maps-png.min.js" />
+    <Content Include="templates\modules\zingchart-maps-pol.min.js" />
+    <Content Include="templates\modules\zingchart-maps-prt.min.js" />
+    <Content Include="templates\modules\zingchart-maps-qat.min.js" />
+    <Content Include="templates\modules\zingchart-maps-rou.min.js" />
+    <Content Include="templates\modules\zingchart-maps-rus.min.js" />
+    <Content Include="templates\modules\zingchart-maps-rwa.min.js" />
+    <Content Include="templates\modules\zingchart-maps-sen.min.js" />
+    <Content Include="templates\modules\zingchart-maps-slv.min.js" />
+    <Content Include="templates\modules\zingchart-maps-srb.min.js" />
+    <Content Include="templates\modules\zingchart-maps-sur.min.js" />
+    <Content Include="templates\modules\zingchart-maps-svk.min.js" />
+    <Content Include="templates\modules\zingchart-maps-svn.min.js" />
+    <Content Include="templates\modules\zingchart-maps-swe.min.js" />
+    <Content Include="templates\modules\zingchart-maps-tha.min.js" />
+    <Content Include="templates\modules\zingchart-maps-tjk.min.js" />
+    <Content Include="templates\modules\zingchart-maps-topojson.min.js" />
+    <Content Include="templates\modules\zingchart-maps-tun.min.js" />
+    <Content Include="templates\modules\zingchart-maps-tur.min.js" />
+    <Content Include="templates\modules\zingchart-maps-twn.min.js" />
+    <Content Include="templates\modules\zingchart-maps-uga.min.js" />
+    <Content Include="templates\modules\zingchart-maps-ukr.min.js" />
+    <Content Include="templates\modules\zingchart-maps-ury.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_ak.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_al.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_ar.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_az.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_ca.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_co.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_ct.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_dc.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_de.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_fl.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_ga.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_hi.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_ia.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_id.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_il.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_in.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_ks.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_ky.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_la.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_ma.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_md.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_me.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_mi.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_mn.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_mo.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_ms.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_mt.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_nc.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_nd.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_ne.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_nh.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_nj.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_nm.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_nv.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_ny.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_oh.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_ok.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_or.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_pa.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_ri.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_sc.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_sd.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_tn.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_tx.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_ut.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_va.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_vt.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_wa.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_wi.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_wv.min.js" />
+    <Content Include="templates\modules\zingchart-maps-usa_wy.min.js" />
+    <Content Include="templates\modules\zingchart-maps-uzb.min.js" />
+    <Content Include="templates\modules\zingchart-maps-ven.min.js" />
+    <Content Include="templates\modules\zingchart-maps-vnm.min.js" />
+    <Content Include="templates\modules\zingchart-maps-world-continents.min.js" />
+    <Content Include="templates\modules\zingchart-maps-world-countries.min.js" />
+    <Content Include="templates\modules\zingchart-maps-yem.min.js" />
+    <Content Include="templates\modules\zingchart-maps-zaf.min.js" />
+    <Content Include="templates\modules\zingchart-maps-zmb.min.js" />
+    <Content Include="templates\modules\zingchart-maps-zwe.min.js" />
+    <Content Include="templates\modules\zingchart-maps.min.js" />
+    <Content Include="templates\modules\zingchart-navpie.min.js" />
+    <Content Include="templates\modules\zingchart-nestedpie.min.js" />
+    <Content Include="templates\modules\zingchart-objects.min.js" />
+    <Content Include="templates\modules\zingchart-pareto.min.js" />
+    <Content Include="templates\modules\zingchart-patterns.min.js" />
+    <Content Include="templates\modules\zingchart-piano.min.js" />
+    <Content Include="templates\modules\zingchart-pie.min.js" />
+    <Content Include="templates\modules\zingchart-pie3d.min.js" />
+    <Content Include="templates\modules\zingchart-populationpyramid.min.js" />
+    <Content Include="templates\modules\zingchart-preview.min.js" />
+    <Content Include="templates\modules\zingchart-r.min.js" />
+    <Content Include="templates\modules\zingchart-radar.min.js" />
+    <Content Include="templates\modules\zingchart-range.min.js" />
+    <Content Include="templates\modules\zingchart-rankflow.min.js" />
+    <Content Include="templates\modules\zingchart-refresh.min.js" />
+    <Content Include="templates\modules\zingchart-scalemarkers.min.js" />
+    <Content Include="templates\modules\zingchart-scatter.min.js" />
+    <Content Include="templates\modules\zingchart-scroll.min.js" />
+    <Content Include="templates\modules\zingchart-selection-tool.min.js" />
+    <Content Include="templates\modules\zingchart-selection.min.js" />
+    <Content Include="templates\modules\zingchart-stock.min.js" />
+    <Content Include="templates\modules\zingchart-stream.min.js" />
+    <Content Include="templates\modules\zingchart-svg-simple-selection.min.js" />
+    <Content Include="templates\modules\zingchart-toolbar3d.min.js" />
+    <Content Include="templates\modules\zingchart-tooltip.min.js" />
+    <Content Include="templates\modules\zingchart-treemap.min.js" />
+    <Content Include="templates\modules\zingchart-varea.min.js" />
+    <Content Include="templates\modules\zingchart-vbar.min.js" />
+    <Content Include="templates\modules\zingchart-vbar3d.min.js" />
+    <Content Include="templates\modules\zingchart-vbullet.min.js" />
+    <Content Include="templates\modules\zingchart-venn.min.js" />
+    <Content Include="templates\modules\zingchart-vfunnel.min.js" />
+    <Content Include="templates\modules\zingchart-vline.min.js" />
+    <Content Include="templates\modules\zingchart-waterfall.min.js" />
+    <Content Include="templates\modules\zingchart-wordcloud.min.js" />
+    <Content Include="templates\modules\zingchart-xy.min.js" />
+    <Content Include="templates\modules\zingchart-yx.min.js" />
+    <Content Include="templates\modules\zingchart-zoom.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LayoutAccount.cshtml" />
+    <Content Include="templates\css\bootstrap-grid.css.map" />
+    <Content Include="templates\css\bootstrap-grid.min.css.map" />
+    <Content Include="templates\css\bootstrap-reboot.css.map" />
+    <Content Include="templates\css\bootstrap-reboot.min.css.map" />
+    <Content Include="templates\css\bootstrap.css.map" />
+    <Content Include="templates\css\bootstrap.min.css.map" />
+    <Content Include="templates\fonts\Flaticon.eot" />
+    <Content Include="templates\fonts\Flaticon.ttf" />
+    <Content Include="templates\fonts\Flaticon.woff" />
+    <Content Include="templates\fonts\fontawesome-webfont.eot" />
+    <Content Include="templates\fonts\fontawesome-webfont.ttf" />
+    <Content Include="templates\fonts\fontawesome-webfont.woff" />
+    <Content Include="templates\fonts\fontawesome-webfont.woff2" />
+    <Content Include="templates\fonts\FontAwesome.otf" />
+    <Content Include="templates\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="templates\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="templates\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="templates\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="templates\fonts\_flaticon.scss" />
+    <Content Include="templates\images\.DS_Store" />
+    <Content Include="templates\images\layout_img\.DS_Store" />
+    <Content Include="templates\js\bootstrap.bundle.js.map" />
+    <Content Include="templates\js\bootstrap.bundle.min.js.map" />
+    <Content Include="templates\js\bootstrap.js.map" />
+    <Content Include="templates\js\bootstrap.min.js.map" />
+    <Content Include="templates\modules\.DS_Store" />
+    <Content Include="Views\NguoiDung\Login.cshtml" />
+    <Content Include="Views\NguoiDung\DangKy.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\DangKy.cshtml" />
+    <Content Include="Views\QLGiaidau\Login.cshtml" />
+    <Content Include="Views\QLGiaidau\QL.cshtml" />
+    <Content Include="Views\QLGiaidau\Detail.cshtml" />
+    <Content Include="Views\QLGiaidau\DanhSachQL.cshtml" />
+    <Content Include="Views\QLGiaidau\CapNhat.cshtml" />
+    <Content Include="Views\QLGiaidau\Index.cshtml" />
+    <Content Include="Views\CauThu\DangKy.cshtml" />
+    <Content Include="Views\CauThu\DanhSachCauThu.cshtml" />
+    <Content Include="Views\CauThu\CapNhat.cshtml" />
+    <Content Include="Views\CauThu\Index.cshtml" />
+    <Content Include="Views\DoiBong\DangKy.cshtml" />
+    <Content Include="Views\DoiBong\DanhSachDoiBong.cshtml" />
+    <Content Include="Views\DoiBong\CapNhat.cshtml" />
+    <Content Include="Views\DoiBong\Index.cshtml" />
+    <Content Include="Views\NguoiDung\Profile.cshtml" />
+    <Content Include="Views\VaiTro\DangKy.cshtml" />
+    <Content Include="Views\VaiTro\CapNhat.cshtml" />
+    <Content Include="Views\VaiTro\Index.cshtml" />
+    <Content Include="Views\LichThiDau\TaoLichThiDau.cshtml" />
+    <Content Include="Views\LichThiDau\Index.cshtml" />
+    <Content Include="Views\QuanLyNguoiDung\DangKy.cshtml" />
+    <Content Include="Views\QuanLyNguoiDung\CapNhat.cshtml" />
+    <Content Include="Views\QuanLyNguoiDung\Index.cshtml" />
+    <Content Include="Views\LichThiDau\XemBXH.cshtml" />
+    <Content Include="Views\LichThiDau\CapNhat.cshtml" />
+    <Content Include="Views\LichThiDau\TaoDanhHieuCauThu.cshtml" />
+    <Content Include="Views\LichThiDau\CapNhatDanhHieuCauThu.cshtml" />
+    <Content Include="Views\QuanLyDanhHieuCauThu\Index.cshtml" />
+    <Content Include="Views\LichThiDau\XemDanhHieuCauThu.cshtml" />
+    <Content Include="Views\QuanLyGiaiThuong\DangKy.cshtml" />
+    <Content Include="Views\LoaiGiaiThuong\DangKy.cshtml" />
+    <Content Include="Views\LoaiGiaiThuong\CapNhat.cshtml" />
+    <Content Include="Views\LoaiGiaiThuong\Index.cshtml" />
+    <Content Include="Views\LichThiDau\XemMaTranGiaiDau.cshtml" />
+    <Content Include="Views\Shared\_LayoutPoster.cshtml" />
+    <Content Include="Views\QLGiaidau\XuatPosterGiaiDau.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\upload\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\PhanQuyenNguoiDung\" />
+    <Folder Include="Views\QuanLyCLBVaGiaiDau\" />
+    <Folder Include="Views\QuanLyDoiBongVaCauThu\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52238</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44349/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,145 @@
+﻿@model SportsLeague.Models.CauThu
+
+@{
+    ViewBag.Title = "CapNhat";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .logo_login {
+        background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+    }
+</style>
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2></h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- invoice section -->
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2><i class="fa fa-file-text-o"></i> Cập nhật cầu thủ</h2>
+                </div>
+            </div>
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <form id="formCapNhat" action="@Url.Action("CapNhat", "CauThu")" method="post" enctype="multipart/form-data">
+                                    @Html.HiddenFor(model => model.MaCauThu)
+                                    <fieldset>
+                                        <div class="field">
+                                            <label class="label_field">Tên Cầu Thủ</label>
+                                            <input type="text" class="form-control" name="TenCauThu" placeholder="Tên giải đấu" value="@Model.TenCauThu" />
+                                        </div>
+                                        @*<div class="field">
+                                            <label class="label_field">Avatar</label>
+                                            <input type="text" class="form-control" name="Avatar" placeholder="Năm thực hiện" value="@Model.Avatar" />
+                                        </div>*@
+
+                                        <div class="form-group">
+                                            <img src="../@Model.Avatar" alt="Avatar cầu thủ" style="width: 100px" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="file" id="imgfile" name="Avatar" accept="image/*" />
+                                        </div>
+
+                                        @*<div class="field">
+                                            <label class="label_field">Ngày Sinh</label>
+                                            <input type="date" class="form-control" name="NgaySinh" placeholder="ngày sinh" value="@Model.NgaySinh" />
+                                        </div>*@
+                                       
+                                        <div class="field">
+                                            <label class="label_field">Ngày Sinh</label>
+                                            @if (Model.NgaySinh.HasValue)
+                                            {
+                                                <input type="date" class="form-control" name="NgaySinh" placeholder="ngày sinh" value="@Model.NgaySinh.Value.ToString("yyyy-MM-dd")" />
+                                            }
+                                            else
+                                            {
+                                                <input type="date" class="form-control" name="NgaySinh" placeholder="ngày sinh" />
+                                            }
+                                        </div>
+
+                                        <div class="field">
+                                            <label class="label_field">Chiều Cao</label>
+                                            <input type="text" class="form-control" name="ChieuCao" placeholder="chiều cao" value="@Model.ChieuCao" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Quốc Tịch</label>
+                                            <input type="text" class="form-control" name="QuocTich" placeholder="quốc tich" value="@Model.QuocTich" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Vị Trí Thi Đấu</label>
+                                            <input type="text" class="form-control" name="ViTriThiDau" placeholder="vi trí thi đấu" value="@Model.ViTriThiDau" />
+                                        </div>
+
+                                        <div class="field margin_0">
+                                            <input class="btn btn-success" style="margin-top: 5px; margin-bottom: 5px" type="submit" id="btnCapNhat" value="Cập nhật" />
+                                            <a href="@Url.Action("Index","CauThu")"><span class="btn btn-danger">Quay lại</span></a>
+                         
+
+                                        </div>
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        @*$('#btnCapNhat').click(function () {
+            // Hiển thị lên cái đang xử lý
+            ShowLoading();
+
+            $.ajax({
+                url: '@Url.Action("CapNhat", "CauThu")',
+                async: true,
+                type: "POST",
+                timeout: 60000,
+                data: $('#formCapNhat').serialize() // public ActionResult DangKy(NguoiDung nguoiDung) => data là nguoiDung
+            }).done(function (response, textStatus, jqXHR) {
+                // Thành công
+                //return Json(new
+                //    {
+                //        result = true,
+                //        message = "Đăng ký thành công"
+                //    }, JsonRequestBehavior.AllowGet);
+
+                if (response.result) {
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    funcPrompt('Request time out', '', 'error');
+                } else {
+                    funcPrompt(textStatus, errorThrown, 'error');
+                }
+            }).always(function () {
+                CloseLoading();
+            });
+        });*@
+    });
+</script>
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+

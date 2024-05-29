@@ -1,0 +1,94 @@
+﻿@using SportsLeague.Models;
+@model List<SportsLeague.Models.CauThu>
+@{
+    ViewBag.Title = "DanhSachCauThu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+@foreach (var item in Model)
+{
+    <style>
+        .logo_login {
+            background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+        }
+    </style>
+    
+            <div class="full counter_section margin_bottom_30">
+
+
+                <div class="row column4 graph">
+
+                    <div class="col-md-4">
+                        <div class="white_shd full margin_bottom_30">
+                            <div class="full graph_head">
+                                <div class="heading1 margin_0">
+                                    <h2>Danh sách Cầu Thủ</h2>
+                                </div>
+                            </div>
+                            <div class="full progress_bar_inner">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="msg_list_main">
+                                            <ul class="msg_list">
+
+                                                <li>
+                                                    <span>
+                                                        <span class="name_user">@item.TenCauThu</span>
+
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        <span class="name_user">@item.Avatar</span>
+
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        <span class="name_user">@item.NgaySinh</span>
+
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        <span class="name_user">@item.ChieuCao</span>
+
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        <span class="name_user">@item.QuocTich</span>
+
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        <span class="name_user">@item.ViTriThiDau</span>
+
+                                                    </span>
+                                                </li>
+
+
+                                            </ul>
+                                            <div class="field margin_0">
+
+                                                <a href="/CauThu/Xoa?maCauThu=@item.MaCauThu"><span class="btn btn-success" style="margin-top: 5px;  margin-bottom: 5px">Xóa</span></a>
+                                                @*<div>
+                                                <a href="/QLGiaidau/CapNhat?maGiaiDau=@item.MaGiaiDau" class="proud_buy">cap nhat </a>
+                                                 </div>*@
+                                                <a href="/CauThu/CapNhat?maCauThu=@item.MaCauThu"><span class="btn btn-danger" style="margin-top: 5px;  margin-bottom: 5px">Cập Nhật</span></a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     
+
+            }

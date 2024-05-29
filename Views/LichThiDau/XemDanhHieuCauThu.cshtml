@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "XemDanhHieuCauThu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using System.Linq;
+@using SportsLeague.Models
+@model System.Collections.Generic.List<DanhHieuCauThuView>
+@*<h2>Danh Hiệu Cầu Thủ</h2>
+
+    <div>
+        <p><strong>Thông tin cầu thủ:</strong></p>
+        <dl class="dl-horizontal">
+            <dt>Mã Cầu Thủ:</dt>
+            <dd>@ViewBag.CauThu.MaCauThu</dd>
+            <dt>Tên Cầu Thủ:</dt>
+            <dd>@ViewBag.CauThu.TenCauThu</dd>
+        </dl>
+    </div>
+
+    <div>
+        <p><strong>Danh sách danh hiệu:</strong></p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Mã Cầu Thủ:</th>
+                    <th>Tên Cầu Thủ:</th>
+                    <th>Mã Danh Hiệu</th>
+                    <th>Loại Giải Thưởng</th>
+                    <th>Số Lượng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var danhHieu in ViewBag.danhHieuCauThu)
+                {
+                    <tr>
+                        <td>@ViewBag.CauThu.MaCauThu</td>
+                        <td>@ViewBag.CauThu.TenCauThu</td>
+                        <td>@danhHieu.MaDanhHieuCauThu</td>
+                        <td>@danhHieu.LoaiGiaiThuong</td>
+                        <td>@danhHieu.SoLuong</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>*@
+
+
+
+
+<style>
+    .logo_login {
+        background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+    }
+</style>
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2></h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- invoice section -->
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2>Danh Hiệu Cầu Thủ</h2>
+                </div>
+            </div>
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <a class="btn btn-danger" style="margin-bottom: 10px" href="/QLGiaidau/CapNhat?maGiaiDau=@ViewBag.MaGiaiDau">Quay lại</a>
+
+                                @foreach (var loaiGiaiThuong in ViewBag.LoaiGiaiThuongs)
+                                {
+                                    <table id="LichThiDauTable" class="table table-hover table-bordered">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <td colspan="5" style="color:black">@loaiGiaiThuong.TenLoaiGiaiThuong</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ var danhHieus = Model.Where(x => x.MaLoaiGiaiThuong == loaiGiaiThuong.MaLoaiGiaiThuong)
+                                                       .OrderByDescending(x => x.TongSoLuong).ToList();}
+                                            @foreach (var danhHieu in danhHieus)
+                                            {
+                                                <tr>
+                                                    <td><img width="50" height="50" src="../@danhHieu.Avatar" /></td>
+                                                    <td>@danhHieu.TenCauThu</td>
+                                                    <td><img width="50" height="50" src="../@danhHieu.Logo" /></td>
+                                                    <td>@danhHieu.TenDoiBong</td>
+                                                    <td>@danhHieu.TongSoLuong</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

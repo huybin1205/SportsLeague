@@ -1,0 +1,252 @@
+﻿@model SportsLeague.Models.LichThiDau
+@{
+    ViewBag.Title = "CapNhat";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*<h3>CapNhat</h3>*@
+
+<style>
+    .logo_login {
+        background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+    }
+</style>
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2></h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- invoice section -->
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2><i class="fa fa-file-text-o"></i> Cập nhật lich thi đấu</h2>
+                </div>
+            </div>
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <form id="formCapNhat" action="@Url.Action("CapNhat", "LichThiDau")" method="post">
+                                    @Html.HiddenFor(model => model.MaLichThiDau)
+                                    <<fieldset>
+                                        <div class="field">
+                                            <label class="label_field">Tên Giải Đấu</label>
+                                            <select name="MaGiaiDau" id="chzn-select" class="form-control" style="width:200px;" value="@Model.MaGiaiDau">
+                                                @foreach (var giaidau in ViewBag.DsGiaiDau)
+                                                {
+                                                    if (giaidau.MaGiaiDau == Model.MaGiaiDau)
+                                                    {
+                                                        <option value="@giaidau.MaGiaiDau" selected>@giaidau.TenGiaiDau</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@giaidau.MaGiaiDau">@giaidau.TenGiaiDau</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Ngày Thi Đấu</label>
+                                            <input type="text" class="jqueryui-marker-datepicker" name="NgayThiDau" placeholder="Ngày Thi Đấu" value="@Model.NgayThiDau" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Vòng Thi Đấu</label>
+                                            <input type="text" class="form-control" name="VongThiDau" placeholder="Vòng Thi Đấu" value="@Model.VongThiDau" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Sân Thi Đấu</label>
+                                            <input type="text" class="form-control" name="SanThiDau" placeholder="Sân Thi Đấu" value="@Model.SanThiDau" />
+                                        </div>
+
+                                        <div class="field">
+                                            <label class="label_field">Tên Đội Bóng Chủ Nhà</label>
+                                            <select name="MaCLBChuNha" id="chzn-select1" class="form-control" style="width:200px;" value="@Model.MaCLBChuNha">
+                                                @foreach (var doibong in ViewBag.DsDoiBong)
+                                                {
+                                                    if (doibong.MaDoiBong == Model.MaCLBChuNha)
+                                                    {
+                                                        <option value="@doibong.MaDoiBong" selected>@doibong.TenDoiBong</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@doibong.MaDoiBong" >@doibong.TenDoiBong</option>
+
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+
+                                        <div class="field">
+                                            <label class="label_field">Tỉ Số đội chủ nhà</label>
+                                            <input type="text" class="form-control" name="TiSoCLBChuNha" placeholder="Tỉ Số đội chủ nhà" value="@Model.TiSoCLBChuNha" />
+                                        </div>
+
+                                        <div class="field">
+                                            <label class="label_field">Tỉ Số đội khách</label>
+                                            <input type="text" class="form-control" name="TiSoCLBKhach" placeholder="Tỉ Số đội khách" value="@Model.TiSoCLBKhach" />
+                                        </div>
+
+
+                                        <div class="field">
+                                            <label class="label_field">Tên Đội Bóng Khách</label>
+                                            <select name="MaCLBKhach" id="chzn-select2" class="form-control" style="width:200px;" value="@Model.MaCLBKhach">
+                                                @foreach (var doibong in ViewBag.DsDoiBong)
+                                                {
+                                                    if (doibong.MaDoiBong == Model.MaCLBKhach)
+                                                    {
+                                                        <option value="@doibong.MaDoiBong" selected>@doibong.TenDoiBong</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@doibong.MaDoiBong">@doibong.TenDoiBong</option>
+
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Số Cú Sút</label>
+                                            <input type="text" class="form-control" name="SoCuSut" placeholder="Số Cú Sút" value="@Model.SoCuSut" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Sút Trúng Đích</label>
+                                            <input type="text" class="form-control" name="SutTrungDich" placeholder="Sút Trúng Đích" value="@Model.SutTrungDich" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Số lượng penalties</label>
+                                            <input type="text" class="form-control" name="SoLuongPenalties" placeholder="Số lượng penalties" value="@Model.SoLuongPenalties" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Số Lượng Đá Phạt</label>
+                                            <input type="text" class="form-control" name="SoLuongDaPhat" placeholder="Số Lượng Đá Phạt" value="@Model.SoLuongDaPhat" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Số Lượng Phạt Góc</label>
+                                            <input type="text" class="form-control" name="SoLuongPhatGoc" placeholder="Số Lượng Phạt Góc" value="@Model.SoLuongPhatGoc" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Số Lượng Phạm Lỗi</label>
+                                            <input type="text" class="form-control" name="SoLuongPhamLoi" placeholder="Số Lượng Phạm Lỗi" value="@Model.SoLuongPhamLoi" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Số Lượng Việt Vị</label>
+                                            <input type="text" class="form-control" name="SoLuongVietVi" placeholder="Số Lượng Việt Vị" value="@Model.SoLuongVietVi" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Số Thẻ Vàng</label>
+                                            <input type="text" class="form-control" name="SoTheVang" placeholder="Số Thẻ Vàng" value="@Model.SoTheVang" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Số Thẻ Đỏ</label>
+                                            <input type="text" class="form-control" name="SoTheDo" placeholder="Số Thẻ Đỏ" value="@Model.SoTheDo" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Bù Giờ</label>
+                                            <input type="text" class="form-control" name="BuGio" placeholder="Bù Giờ" value="@Model.BuGio" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Kết Quả Luân Lưu</label>
+                                            <input type="text" class="form-control" name="KetQuaLuanLuu" placeholder="Kết Quả Luân Lưu" value="@Model.KetQuaLuanLuu" />
+                                        </div>
+
+
+
+                                        <div class="field margin_0">
+                                            <input class="btn btn-success" style="margin-top: 5px; margin-bottom: 5px" type="button" id="btnCapNhat" value="Cập nhật" />
+                                            <a href="@Url.Action("Index","LichThiDau")"><span class="btn btn-danger">Quay lại</span></a>
+                                        </div>
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#btnCapNhat').click(function () {
+            // Hiển thị lên cái đang xử lý
+            ShowLoading();
+
+            $.ajax({
+                url: '@Url.Action("CapNhat", "LichThiDau")',
+                async: true,
+                type: "POST",
+                timeout: 60000,
+                data: $('#formCapNhat').serialize() // public ActionResult DangKy(NguoiDung nguoiDung) => data là nguoiDung
+            }).done(function (response, textStatus, jqXHR) {
+                // Thành công
+                //return Json(new
+                //    {
+                //        result = true,
+                //        message = "Đăng ký thành công"
+                //    }, JsonRequestBehavior.AllowGet);
+
+                if (response.result) {
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    funcPrompt('Request time out', '', 'error');
+                } else {
+                    funcPrompt(textStatus, errorThrown, 'error');
+                }
+            }).always(function () {
+                CloseLoading();
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        //. là class
+        //# là id
+        $("#chzn-select").chosen();
+    });
+</script>
+
+
+<script type="text/javascript">
+    $(function () {
+        //. là class
+        //# là id
+        $("#chzn-select1").chosen();
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        //. là class
+        //# là id
+        $("#chzn-select2").chosen();
+    });
+</script>
+
+<script>
+    $(function () {
+        $('.jqueryui-marker-datepicker').datetimepicker({
+            showSecond: true,
+            dateFormat: 'dd/mm/yy',
+            timeFormat: 'hh:mm:ss',
+            stepHour: 2,
+            stepMinute: 10,
+            stepSecond: 10
+
+        });
+    });
+</script>

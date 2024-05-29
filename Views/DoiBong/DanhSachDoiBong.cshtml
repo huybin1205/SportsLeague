@@ -1,0 +1,91 @@
+﻿@using SportsLeague.Models;
+@model List<SportsLeague.Models.DoiBong>
+@{
+    ViewBag.Title = "DanhSachDoiBong";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@foreach (var item in Model)
+{
+    <style>
+        .logo_login {
+            background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+        }
+    </style>
+
+    <div class="row column4 graph">
+
+        <div class="col-md-4">
+            <div class="white_shd full margin_bottom_30">
+                <div class="full graph_head">
+                    <div class="heading1 margin_0">
+                        <h2>Danh sách đội bóng</h2>
+                    </div>
+                </div>
+                <div class="full progress_bar_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="msg_list_main">
+                                <ul class="msg_list">
+
+                                    <li>
+                                        <span>
+                                            <span class="name_user">@item.TenDoiBong</span>
+
+                                        </span>
+                                    </li>
+                                    @*<li>
+                                        <span>
+                                            <span class="name_user">@item.Logo</span>
+
+                                        </span>
+                                    </li>*@
+                                    <li>
+                                        <img style="width:50px;height:50px" src="~UpLoad/Logo/@item.Logo" />
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <span class="name_user">@item.NguoiQuanLyCLB</span>
+
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <span class="name_user">@item.DoiTruong</span>
+
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <span class="name_user">@item.ViTri</span>
+
+                                        </span>
+                                    </li>
+                                  
+
+
+                                </ul>
+                                <div class="field margin_0">
+
+                                  
+                                        <a href="/DoiBong/Xoa?maDoiBong=@item.MaDoiBong"><span class="btn btn-success" style="margin-top: 5px; margin-bottom: 5px"> Xóa</span></a>
+                                        @*<div>
+                                             <a href="/QLGiaidau/CapNhat?maGiaiDau=@item.MaGiaiDau" class="proud_buy">cap nhat </a>
+                                                </div>*@
+                                    <a href="/DoiBong/CapNhat?maDoiBong=@item.MaDoiBong"><span class="btn btn-danger" style="margin-top: 5px;  margin-bottom: 5px">Cập Nhật</span></a>
+
+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+}
+
+

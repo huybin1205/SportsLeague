@@ -1,0 +1,261 @@
+﻿@model SportsLeague.Models.NguoiDung
+@{
+    ViewBag.Title = "CapNhat";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .logo_login {
+        background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+    }
+</style>
+
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2>Cập Nhật Thông Tin</h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2><i class="fa fa-file-text-o"></i> Cập nhật người dùng</h2>
+                </div>
+            </div>
+
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <form id="formCapNhat" action="@Url.Action("CapNhat", "QuanLyNguoiDung")" method="post" enctype="multipart/form-data">
+                                    @Html.HiddenFor(model => model.MaNguoiDung)
+                                    <fieldset>
+                                        <div class="field">
+                                            <label class="label_field">Tên đăng nhập</label>
+                                            <input type="text" name="TenDangNhap" class="form-control" placeholder="Tên đăng nhập" value="@Model.TenDangNhap" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Mật khẩu</label>
+                                            <input type="password" name="MatKhau" class="form-control" placeholder="Mật khẩu" value="@Model.MatKhau" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Họ</label>
+                                            <input type="text" name="Ho" class="form-control" placeholder="Họ" value="@Model.Ho" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Tên</label>
+                                            <input type="text" name="Ten" class="form-control" placeholder="Tên" value="@Model.Ten" />
+                                        </div>
+                                        <div class="form-group">
+                                            <img src="../@Model.Avatar" alt="Avatar người dùng" style="width: 100px" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Ảnh</label>
+                                            <input type="file" id="imgfile" name="Avatar" class="form-control" accept="image/*" />
+                                        </div>
+                                        @*<div class="field">
+                                            <label class="label_field">Ngày sinh</label>
+                                            <input type="date" name="NgaySinh" class="form-control" placeholder="Ngày sinh" />
+                                        </div>*@
+                                          <div class="field">
+                                            <label class="label_field">Ngày Sinh</label>
+                                            @if (Model.NgaySinh.HasValue)
+                                            {
+                                                <input type="date" class="form-control" name="NgaySinh" placeholder="ngày sinh" value="@Model.NgaySinh.Value.ToString("yyyy-MM-dd")" />
+                                            }
+                                            else
+                                            {
+                                                <input type="date" class="form-control" name="NgaySinh" placeholder="ngày sinh" />
+                                            }
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Email</label>
+                                            <input type="email" name="Email" class="form-control" placeholder="Email" value="@Model.Email" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Số điện thoại</label>
+                                            <input type="tel" name="SoDienThoai" class="form-control" placeholder="Số điện thoại" value="@Model.SoDienThoai" />
+                                        </div>
+                                        <div class="field margin_0">
+                                            <input class="btn btn-success" style="margin-top: 5px; margin-bottom: 5px" type="submit" id="btnCapNhat" value="Cập nhật" />
+                                            <a href="@Url.Action("Index","QuanLyNguoiDung")"><span class="btn btn-danger">Quay lại</span></a>
+                                        </div>
+                                        <hr />
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- invoice section -->
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2><i class="fa fa-file-text-o"></i> Vai Trò Người Dùng</h2>
+                </div>
+            </div>
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <form id="formThemVaiTro">
+                                    @Html.HiddenFor(model => model.MaNguoiDung)
+                                    <fieldset>
+                                        <div class="field">
+                                            <label class="label_field">Người Dùng</label>
+                                            <select name="MaVaiTro" class="chzn-select" style="width:200px;">
+                                                @foreach (var vaitro in ViewBag.DSVaiTro)
+                                                {
+                                                    <option value="@vaitro.MaVaiTro">@vaitro.TenVaiTro</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Đội bóng</label>
+                                            <select name="MaDoiBong" class="chzn-select1" style="width:200px;">
+                                                @foreach (var doiBong in ViewBag.DoiBongs)
+                                                {
+                                                    <option value="@doiBong.MaDoiBong">@doiBong.TenDoiBong</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <input class="btn btn-danger" id="btnThemVaiTro" style="margin-top: 5px" value="Thêm Vai Trò" />
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <span> Loại Vai Trò </span>
+                                <table id="VaiTroTable" class="display">
+                                    <thead>
+                                        <tr>
+                                            <th>Mã Vai Trò</th>
+                                            <th>Tên Vai Trò</th>
+                                            <th>Tên Đội Bóng</th>
+                                            <th>Hành Động</th>
+
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#btnThemVaiTro').click(function () {
+            // Hiển thị lên cái đang xử lý
+            ShowLoading();
+
+            $.ajax({
+                url: '@Url.Action("Them", "PhanQuyenNguoiDung")',
+                async: true,
+                type: "POST",
+                timeout: 60000,
+                data: $('#formThemVaiTro').serialize() // public ActionResult DangKy(NguoiDung nguoiDung) => data là nguoiDung
+            }).done(function (response, textStatus, jqXHR) {
+                // Thành công
+                //return Json(new
+                //    {
+                //        result = true,
+                //        message = "Đăng ký thành công"
+                //    }, JsonRequestBehavior.AllowGet);
+
+                if (response.result) {
+                   /* $('#CauThuTable').DataTable().ajax.reload();*/
+                    toastr.success(response.message);
+                    window.location.reload();
+                } else {
+                    toastr.error(response.message);
+                }
+
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    funcPrompt('Request time out', '', 'error');
+                } else {
+                    funcPrompt(textStatus, errorThrown, 'error');
+                }
+            }).always(function () {
+                CloseLoading();
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    var dtable;
+    $(document).ready(function () {
+        var dtable = $('#VaiTroTable').DataTable({
+            //"processing": true,
+            //"serverSide": true,
+            "ajax": {
+                "url": "@Url.Action("GetData", "PhanQuyenNguoiDung", new { maNguoiDung = Model.MaNguoiDung })",
+                "type": "Get",
+                "datatype": "json"
+            },
+            "columns": [
+
+                { "data": "MaVaiTro" },
+                { "data": "TenVaiTro" },         
+                { "data": "TenDoiBong" },         
+                {
+                    "data": "MaVaiTro", render: function (id, type, row, meta) {
+                        var bHtml = "<div class='btn-group' role='group' aria-label='updaterecord'>";
+                        /*bHtml += "<button1 class='btn btn-primary' onclick=Edit(" + id + ") style='margin-right:5px;'></i>Chỉnh sửa</button1>";*/
+                        bHtml += "<button class='btn btn-danger'  onclick=Xoa(" + id + ") style='margin-right:5px;'>Xóa</button>";
+                        bHtml += "</div>";
+                        return bHtml;
+                    }
+                }
+            ],
+            "language": {
+                "url": 'https://cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json'
+            }
+        });
+
+    });
+
+
+    function Xoa(id) {
+        var result = confirm("Bạn có muốn xóa vai trò này?");
+        if (result) {
+            window.location.href = "@Url.Action("Xoa", "PhanQuyenNguoiDung")?maNguoiDung=" + @Model.MaNguoiDung +"&maVaiTro=" + id;
+        }
+    }
+    
+
+
+</script>
+
+
+
+<script type="text/javascript">
+    $(function () {
+        //. là class
+        //# là id
+        $(".chzn-select").chosen();
+        $(".chzn-select1").chosen();
+    });
+</script>

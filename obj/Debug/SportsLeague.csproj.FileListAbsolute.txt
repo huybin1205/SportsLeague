@@ -1,0 +1,428 @@
+C:\Users\huy.tran\source\repos\SportsLeague\bin\SportsLeague.dll.config
+C:\Users\huy.tran\source\repos\SportsLeague\bin\SportsLeague.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\SportsLeague.pdb
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\csc.exe
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\csc.exe.config
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\csc.rsp
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\csi.exe
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\csi.exe.config
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\csi.rsp
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.AppContext.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Console.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.IO.Compression.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Net.Http.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Net.Sockets.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.ValueTuple.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Xml.XPath.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\vbc.exe
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\vbc.exe.config
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\vbc.rsp
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\VBCSCompiler.exe
+C:\Users\huy.tran\source\repos\SportsLeague\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\huy.tran\source\repos\SportsLeague\bin\Antlr3.Runtime.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\EntityFramework.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\EntityFramework.SqlServer.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\Newtonsoft.Json.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Web.Helpers.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Web.Mvc.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Web.Optimization.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Web.Razor.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Web.WebPages.Deployment.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Web.WebPages.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Web.WebPages.Razor.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\WebGrease.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\EntityFramework.xml
+C:\Users\huy.tran\source\repos\SportsLeague\bin\EntityFramework.SqlServer.xml
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Web.Helpers.xml
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Web.Mvc.xml
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Web.Optimization.xml
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Web.Razor.xml
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Web.WebPages.xml
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Web.WebPages.Deployment.xml
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Web.WebPages.Razor.xml
+C:\Users\huy.tran\source\repos\SportsLeague\bin\Newtonsoft.Json.xml
+C:\Users\huy.tran\source\repos\SportsLeague\bin\Antlr3.Runtime.pdb
+C:\Users\huy.tran\source\repos\SportsLeague\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\huy.tran\source\repos\SportsLeague\obj\Debug\SportsLeague.csproj.CoreCompileInputs.cache
+C:\Users\huy.tran\source\repos\SportsLeague\obj\Debug\SportsLeague.csproj.CopyComplete
+C:\Users\huy.tran\source\repos\SportsLeague\obj\Debug\SportsLeague.dll
+C:\Users\huy.tran\source\repos\SportsLeague\obj\Debug\SportsLeague.pdb
+C:\Users\huy.tran\source\repos\SportsLeague\obj\Debug\SportsLeague.csproj.AssemblyReference.cache
+C:\Users\huy.tran\source\repos\SportsLeague\bin\BCrypt.Net-Next.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Buffers.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Memory.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Numerics.Vectors.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\huy.tran\source\repos\SportsLeague\bin\BCrypt.Net-Next.xml
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Buffers.xml
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Memory.xml
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Numerics.Vectors.xml
+C:\Users\huy.tran\source\repos\SportsLeague\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\SportsLeague\SportsLeague\bin\SportsLeague.dll.config
+D:\SportsLeague\SportsLeague\bin\SportsLeague.dll
+D:\SportsLeague\SportsLeague\bin\SportsLeague.pdb
+D:\SportsLeague\SportsLeague\bin\roslyn\csc.exe
+D:\SportsLeague\SportsLeague\bin\roslyn\csc.exe.config
+D:\SportsLeague\SportsLeague\bin\roslyn\csc.rsp
+D:\SportsLeague\SportsLeague\bin\roslyn\csi.exe
+D:\SportsLeague\SportsLeague\bin\roslyn\csi.exe.config
+D:\SportsLeague\SportsLeague\bin\roslyn\csi.rsp
+D:\SportsLeague\SportsLeague\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\SportsLeague\SportsLeague\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\Microsoft.Managed.Core.targets
+D:\SportsLeague\SportsLeague\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\SportsLeague\SportsLeague\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.AppContext.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Collections.Immutable.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Console.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Globalization.Calendars.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.IO.Compression.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.IO.FileSystem.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Net.Http.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Net.Sockets.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Reflection.Metadata.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.ValueTuple.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Xml.XmlDocument.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Xml.XPath.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\SportsLeague\SportsLeague\bin\roslyn\vbc.exe
+D:\SportsLeague\SportsLeague\bin\roslyn\vbc.exe.config
+D:\SportsLeague\SportsLeague\bin\roslyn\vbc.rsp
+D:\SportsLeague\SportsLeague\bin\roslyn\VBCSCompiler.exe
+D:\SportsLeague\SportsLeague\bin\roslyn\VBCSCompiler.exe.config
+D:\SportsLeague\SportsLeague\bin\Antlr3.Runtime.dll
+D:\SportsLeague\SportsLeague\bin\BCrypt.Net-Next.dll
+D:\SportsLeague\SportsLeague\bin\EntityFramework.dll
+D:\SportsLeague\SportsLeague\bin\EntityFramework.SqlServer.dll
+D:\SportsLeague\SportsLeague\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\SportsLeague\SportsLeague\bin\Microsoft.Web.Infrastructure.dll
+D:\SportsLeague\SportsLeague\bin\Newtonsoft.Json.dll
+D:\SportsLeague\SportsLeague\bin\System.Buffers.dll
+D:\SportsLeague\SportsLeague\bin\System.Memory.dll
+D:\SportsLeague\SportsLeague\bin\System.Numerics.Vectors.dll
+D:\SportsLeague\SportsLeague\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\SportsLeague\SportsLeague\bin\System.Web.Helpers.dll
+D:\SportsLeague\SportsLeague\bin\System.Web.Mvc.dll
+D:\SportsLeague\SportsLeague\bin\System.Web.Optimization.dll
+D:\SportsLeague\SportsLeague\bin\System.Web.Razor.dll
+D:\SportsLeague\SportsLeague\bin\System.Web.WebPages.Deployment.dll
+D:\SportsLeague\SportsLeague\bin\System.Web.WebPages.dll
+D:\SportsLeague\SportsLeague\bin\System.Web.WebPages.Razor.dll
+D:\SportsLeague\SportsLeague\bin\WebGrease.dll
+D:\SportsLeague\SportsLeague\bin\BCrypt.Net-Next.xml
+D:\SportsLeague\SportsLeague\bin\EntityFramework.xml
+D:\SportsLeague\SportsLeague\bin\EntityFramework.SqlServer.xml
+D:\SportsLeague\SportsLeague\bin\System.Buffers.xml
+D:\SportsLeague\SportsLeague\bin\System.Memory.xml
+D:\SportsLeague\SportsLeague\bin\System.Numerics.Vectors.xml
+D:\SportsLeague\SportsLeague\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\SportsLeague\SportsLeague\bin\System.Web.Helpers.xml
+D:\SportsLeague\SportsLeague\bin\System.Web.Mvc.xml
+D:\SportsLeague\SportsLeague\bin\System.Web.Optimization.xml
+D:\SportsLeague\SportsLeague\bin\System.Web.Razor.xml
+D:\SportsLeague\SportsLeague\bin\System.Web.WebPages.xml
+D:\SportsLeague\SportsLeague\bin\System.Web.WebPages.Deployment.xml
+D:\SportsLeague\SportsLeague\bin\System.Web.WebPages.Razor.xml
+D:\SportsLeague\SportsLeague\bin\Newtonsoft.Json.xml
+D:\SportsLeague\SportsLeague\bin\Antlr3.Runtime.pdb
+D:\SportsLeague\SportsLeague\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\SportsLeague\SportsLeague\obj\Debug\SportsLeague.csproj.AssemblyReference.cache
+D:\SportsLeague\SportsLeague\obj\Debug\SportsLeague.csproj.CoreCompileInputs.cache
+D:\SportsLeague\SportsLeague\obj\Debug\SportsLeague.csproj.CopyComplete
+D:\SportsLeague\SportsLeague\obj\Debug\SportsLeague.dll
+D:\SportsLeague\SportsLeague\obj\Debug\SportsLeague.pdb
+D:\SportsLeague\SportsLeague\bin\ClosedXML.dll
+D:\SportsLeague\SportsLeague\bin\DocumentFormat.OpenXml.dll
+D:\SportsLeague\SportsLeague\bin\EPPlus.dll
+D:\SportsLeague\SportsLeague\bin\EPPlus.Interfaces.dll
+D:\SportsLeague\SportsLeague\bin\EPPlus.System.Drawing.dll
+D:\SportsLeague\SportsLeague\bin\ExcelNumberFormat.dll
+D:\SportsLeague\SportsLeague\bin\Irony.dll
+D:\SportsLeague\SportsLeague\bin\Microsoft.IO.RecyclableMemoryStream.dll
+D:\SportsLeague\SportsLeague\bin\SixLabors.Fonts.dll
+D:\SportsLeague\SportsLeague\bin\System.ComponentModel.Annotations.dll
+D:\SportsLeague\SportsLeague\bin\System.IO.Packaging.dll
+D:\SportsLeague\SportsLeague\bin\XLParser.dll
+D:\SportsLeague\SportsLeague\bin\ClosedXML.xml
+D:\SportsLeague\SportsLeague\bin\DocumentFormat.OpenXml.xml
+D:\SportsLeague\SportsLeague\bin\EPPlus.xml
+D:\SportsLeague\SportsLeague\bin\ExcelNumberFormat.xml
+D:\SportsLeague\SportsLeague\bin\Microsoft.IO.RecyclableMemoryStream.xml
+D:\SportsLeague\SportsLeague\bin\SixLabors.Fonts.xml
+D:\SportsLeague\SportsLeague\bin\System.IO.Packaging.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\SportsLeague.dll.config
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\SportsLeague.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\SportsLeague.pdb
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\csc.exe
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\csc.exe.config
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\csc.rsp
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\csi.exe
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\csi.exe.config
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\csi.rsp
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\Microsoft.Managed.Core.targets
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.AppContext.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Collections.Immutable.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Console.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Globalization.Calendars.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.IO.Compression.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.IO.FileSystem.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Net.Http.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Net.Sockets.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Reflection.Metadata.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.ValueTuple.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Xml.XmlDocument.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Xml.XPath.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\vbc.exe
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\vbc.exe.config
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\vbc.rsp
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\VBCSCompiler.exe
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\roslyn\VBCSCompiler.exe.config
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\Antlr3.Runtime.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\BCrypt.Net-Next.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\ClosedXML.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\DocumentFormat.OpenXml.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\EntityFramework.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\EntityFramework.SqlServer.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\EPPlus.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\EPPlus.Interfaces.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\EPPlus.System.Drawing.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\ExcelNumberFormat.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\Irony.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\Microsoft.IO.RecyclableMemoryStream.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\Microsoft.Web.Infrastructure.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\Newtonsoft.Json.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\SixLabors.Fonts.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Buffers.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.ComponentModel.Annotations.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.IO.Packaging.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Memory.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Numerics.Vectors.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Web.Helpers.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Web.Mvc.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Web.Optimization.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Web.Razor.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Web.WebPages.Deployment.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Web.WebPages.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Web.WebPages.Razor.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\WebGrease.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\XLParser.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\BCrypt.Net-Next.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\ClosedXML.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\DocumentFormat.OpenXml.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\EntityFramework.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\EntityFramework.SqlServer.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\EPPlus.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\ExcelNumberFormat.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\Microsoft.IO.RecyclableMemoryStream.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\SixLabors.Fonts.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Buffers.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.IO.Packaging.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Memory.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Numerics.Vectors.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Web.Helpers.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Web.Mvc.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Web.Optimization.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Web.Razor.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Web.WebPages.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Web.WebPages.Deployment.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\System.Web.WebPages.Razor.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\Newtonsoft.Json.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\Antlr3.Runtime.pdb
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\obj\Debug\SportsLeague.csproj.AssemblyReference.cache
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\obj\Debug\SportsLeague.csproj.CoreCompileInputs.cache
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\obj\Debug\SportsLeague.csproj.CopyComplete
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\obj\Debug\SportsLeague.dll
+D:\cacmonhoc\DA chuyenh nganh\SportsLeague\SportsLeague\obj\Debug\SportsLeague.pdb
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\obj\Debug\SportsLeague.csproj.CoreCompileInputs.cache
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\SportsLeague.dll.config
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\SportsLeague.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\SportsLeague.pdb
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\csc.exe
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\csc.exe.config
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\csc.rsp
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\csi.exe
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\csi.exe.config
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\csi.rsp
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.AppContext.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Console.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.IO.Compression.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Net.Http.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Net.Sockets.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.ValueTuple.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Xml.XPath.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\vbc.exe
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\vbc.exe.config
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\vbc.rsp
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\VBCSCompiler.exe
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\Antlr3.Runtime.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\BCrypt.Net-Next.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\ClosedXML.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\DocumentFormat.OpenXml.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\EntityFramework.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\EntityFramework.SqlServer.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\EPPlus.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\EPPlus.Interfaces.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\EPPlus.System.Drawing.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\ExcelNumberFormat.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\Irony.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\Newtonsoft.Json.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\SixLabors.Fonts.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Buffers.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.ComponentModel.Annotations.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.IO.Packaging.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Memory.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Numerics.Vectors.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Web.Helpers.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Web.Mvc.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Web.Optimization.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Web.Razor.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Web.WebPages.Deployment.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Web.WebPages.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Web.WebPages.Razor.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\WebGrease.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\XLParser.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\BCrypt.Net-Next.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\ClosedXML.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\DocumentFormat.OpenXml.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\EntityFramework.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\EntityFramework.SqlServer.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\EPPlus.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\ExcelNumberFormat.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\SixLabors.Fonts.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Buffers.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.IO.Packaging.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Memory.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Numerics.Vectors.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Web.Helpers.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Web.Mvc.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Web.Optimization.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Web.Razor.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Web.WebPages.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Web.WebPages.Deployment.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\System.Web.WebPages.Razor.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\Newtonsoft.Json.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\Antlr3.Runtime.pdb
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\obj\Debug\SportsLeague.csproj.CopyComplete
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\obj\Debug\SportsLeague.dll
+C:\Users\huy.tran\Desktop\SportsLeague\SportsLeague\obj\Debug\SportsLeague.pdb

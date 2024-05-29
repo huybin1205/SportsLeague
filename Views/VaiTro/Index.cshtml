@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Danh sách Vai trò</h3>
+            <a class="btn btn-success" style="margin-bottom:10px" href="/VaiTro/DangKy"><i class="fa fa-plus"></i> Thêm Mới</a>
+        </div>
+        
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table id="VaiTroTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Tên Vai Trò</th>
+                        <th>Hành Động</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modals -->
+@*<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="DetailsModal" aria-hidden="true" data-backdrop="static">
+    <div id="detailsContainer"></div>
+</div>
+<div class="modal fade" id="deleteModel" tabindex="-1" role="dialog" aria-labelledby="DeleteModel" aria-hidden="true" data-backdrop="static">
+    <div id="deleteContainer"></div>
+</div>*@
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var dtable = $('#VaiTroTable').DataTable({
+                //dom: 'Bfrtip',
+                //buttons: [
+                //    'excel','print'
+                //],
+                "ajax": {
+                    "url": "../VaiTro/GetData",
+                    "type": "Get",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "TenVaiTro" },
+                    {
+                        "data": "MaVaiTro", render: function (id) {
+                            var bHtml = "<div class='btn-group' role='group' aria-label='updaterecord'>";
+                            bHtml += "<button1 class='btn btn-primary' onclick=Edit(" + id + ") style='margin-right:5px;'></i>Chỉnh sửa</button1>";
+                            bHtml += "<button class='btn btn-danger'  onclick=Xoa(" + id + ") style='margin-right:5px;'>Xóa</button>";
+                            bHtml += "</div>";
+                            return bHtml;
+                        }
+                    }
+                ],
+                "language": {
+                    "url": 'https://cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json'
+                }
+            });
+        });
+
+        function Xoa(id) {
+            var result = confirm("Bạn có muốn xóa vai trò này?");
+            if (result) {
+                window.location.href = "@Url.Action("Xoa", "VaiTro")?maVaiTro=" + id;
+            }
+        }
+
+        function Edit(id) {
+            window.location.href = "@Url.Action("CapNhat", "VaiTro")?maVaiTro=" + id;
+        }
+    </script>
+}

@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .logo_login {
+        background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+    }
+</style>
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2>Quản Lý Giải Thưởng</h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- invoice section -->
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2><i class="fa fa-file-text-o"></i> Thêm Loại Giải Thưởng</h2>
+                </div>
+            </div>
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <form id="formDangKy" action="@Url.Action("DangKy","LoaiGiaiThuong")" method="post">
+                                    <fieldset>
+                                        @*<div class="field">
+                                                <label class="label_field">Mã Vai Trò</label>
+                                                <input type="text" class="form-control" name="MaVaoTro" placeholder="Mã Vai Trò" />
+                                            </div>*@
+                                        <div class="field">
+                                            <label class="label_field">Tên Loại Giải Thưởng</label>
+                                            <input type="text" class="form-control" name="TenLoaiGiaiThuong" placeholder="Tên Loại Giải Thưởng" />
+                                        </div>
+
+
+                                        <div class="field margin_0">
+                                            <input class="btn btn-success" style="margin-top: 5px; margin-bottom: 5px" type="button" id="btnDangKy" value="Đăng ký" />
+                                            <a href="@Url.Action("Index","LoaiGiaiThuong")"><span class="btn btn-danger">Quay lại</span></a>
+                                        </div>
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#btnDangKy').click(function () {
+            // Hiển thị lên cái đang xử lý
+            ShowLoading();
+
+            $.ajax({
+                url: '@Url.Action("DangKy", "LoaiGiaiThuong")',
+                async: true,
+                type: "POST",
+                timeout: 60000,
+                data: $('#formDangKy').serialize() // public ActionResult DangKy(NguoiDung nguoiDung) => data là nguoiDung
+            }).done(function (response, textStatus, jqXHR) {
+                // Thành công
+                //return Json(new
+                //    {
+                //        result = true,
+                //        message = "Đăng ký thành công"
+                //    }, JsonRequestBehavior.AllowGet);
+
+                if (response.result) {
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    funcPrompt('Request time out', '', 'error');
+                } else {
+                    funcPrompt(textStatus, errorThrown, 'error');
+                }
+            }).always(function () {
+                CloseLoading();
+            });
+        });
+    });
+</script>
+
+

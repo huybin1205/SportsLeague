@@ -1,0 +1,119 @@
+﻿@model SportsLeague.Models.LoaiGiaiThuong
+@{
+    ViewBag.Title = "CapNhat";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+@*<style>
+        .logo_login {
+            background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+        }
+    </style>*@
+<!--<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">-->
+            @*<h2 class="page-title">Cập nhật loại giải thưởng</h2>*@
+        <!--</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary"><i class="fa fa-file-text-o"></i> Cập nhật loại giải thưởng</h6>
+                </div>
+                <div class="card-body">
+                    <form id="formCapNhat" action="@Url.Action("CapNhat", "LoaiGiaiThuong")" method="post">
+                        @Html.HiddenFor(model => model.MaLoaiGiaiThuong)
+                        <div class="form-group">
+                            <label form="TenLoaiGiaiThuong">Tên Loại Giải Thưởng</label>
+                            <input type="text" class="form-control" id="TenLoaiGiaiThuong" name="TenLoaiGiaiThuong" placeholder="Tên Loại Giải Thưởng" value="@Model.TenLoaiGiaiThuong" />
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-success" type="button" id="btnCapNhat">Cập nhật</button>
+                            <a href="@Url.Action("Index", "LoaiGiaiThuong")" class="btn btn-danger">Quay lại</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>-->
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2></h2>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2><i class="fa fa-file-text-o"></i> Cập nhật loại giải thưởng</h2>
+                </div>
+            </div>
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <form id="formCapNhat" action="@Url.Action("CapNhat", "LoaiGiaiThuong")" method="post">
+                                    @Html.HiddenFor(model => model.MaLoaiGiaiThuong)
+                                    <div class="form-group">
+                                        <label form="TenLoaiGiaiThuong">Tên Loại Giải Thưởng</label>
+                                        <input type="text" class="form-control" id="TenLoaiGiaiThuong" name="TenLoaiGiaiThuong" placeholder="Tên Loại Giải Thưởng" value="@Model.TenLoaiGiaiThuong" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button class="btn btn-success" type="button" id="btnCapNhat">Cập nhật</button>
+                                        <a href="@Url.Action("Index", "LoaiGiaiThuong")" class="btn btn-danger">Quay lại</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#btnCapNhat').click(function () {
+                // Hiển thị lên cái đang xử lý
+                ShowLoading();
+
+                $.ajax({
+                    url: '@Url.Action("CapNhat", "LoaiGiaiThuong")',
+                    type: "POST",
+                    data: $('#formCapNhat').serialize()
+                }).done(function (response) {
+                    if (response.result) {
+                        toastr.success(response.message);
+                    } else {
+                        toastr.error(response.message);
+                    }
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    if (textStatus === 'timeout') {
+                        funcPrompt('Request time out', '', 'error');
+                    } else {
+                        funcPrompt(textStatus, errorThrown, 'error');
+                    }
+                }).always(function () {
+                    CloseLoading();
+                });
+            });
+        });
+    </script>
+}
+
+

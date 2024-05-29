@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<style>
+    .logo_login {
+        background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+    }
+</style>
+<div class="container">
+    <div class="center verticle_center full_height">
+        <div class="login_section">
+            <div class="logo_login">
+                <div class="center">
+                    <img width="210" src="~/templates/images//logo/logo.png" alt="#" />
+                </div>
+            </div>
+            <div class="login_form">
+                <form id="formDangKy" action="@Url.Action("DangKy","Account")" method="post">
+                    <fieldset>
+                        <div class="field">
+                            <label class="label_field">Tên đăng nhập</label>
+                            <input type="text" name="TenDangNhap" placeholder="Tên đăng nhập" />
+                        </div>
+                        <div class="field">
+                            <label class="label_field">Mật khẩu</label>
+                            <input type="password" name="MatKhau" placeholder="Mật khẩu" />
+                        </div>
+                        <div class="field">
+                            <label class="label_field">Họ</label>
+                            <input type="text" name="Ho" placeholder="Họ" />
+                        </div>
+                        <div class="field">
+                            <label class="label_field">Tên</label>
+                            <input type="text" name="Ten" placeholder="Tên" />
+                        </div>
+                        <div class="field">
+                            <label class="label_field">Ngày sinh</label>
+                            <input type="date" name="NgaySinh" placeholder="Ngày sinh" />
+                        </div>
+                        <div class="field">
+                            <label class="label_field">Email</label>
+                            <input type="email" name="Email" placeholder="Email" />
+                        </div>
+                        <div class="field">
+                            <label class="label_field">Số điện thoại</label>
+                            <input type="tel" name="SoDienThoai" placeholder="Số điện thoại" />
+                        </div>
+                        <div class="field margin_0">
+                            <label class="label_field hidden">hidden label</label>
+                            <input class="main_bt" type="button" id="btnDangKy" value="Đăng ký" />
+                        </div>
+                        <hr />
+                        <div class="field">
+                            <label class="label_field hidden">hidden label</label>
+                            Quay lại trang <a href="@Url.Action("Login","Account")"><span class="text-primary">Đăng nhập</span></a>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#btnDangKy').click(function () {
+            // Hiển thị lên cái đang xử lý
+            ShowLoading();
+
+            $.ajax({
+                url: '@Url.Action("DangKy", "Account")',
+                async: true,
+                type: "POST",
+                timeout: 60000,
+                data: $('#formDangKy').serialize() // public ActionResult DangKy(NguoiDung nguoiDung) => data là nguoiDung
+            }).done(function (response, textStatus, jqXHR) {
+                if (response.result) {
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    funcPrompt('Request time out', '', 'error');
+                } else {
+                    funcPrompt(textStatus, errorThrown, 'error');
+                }
+            }).always(function () {
+                CloseLoading();
+            });
+        });
+    });
+</script>
+

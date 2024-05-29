@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Danh Sách Lịch Thi Đấu</h3>
+            <a class="btn btn-success" style="margin-bottom: 10px" href="/LichThiDau/TaoLichThiDau"><i class="fa fa-plus"></i> Thêm mới</a>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table id="LichThiDauTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Giải Đấu</th>
+                        <th>Ngày Thi Đấu</th>
+                        <th>Vòng Thi Đấu</th>
+                        <th>Sân Thi Đấu</th>
+                        <th>Đội Chủ Nhà</th>
+                        <th>Tỉ Số</th>
+                        <th>Đội Khách</th>
+                        <th>Hành Động</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#LichThiDauTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'excel', 'print'
+                ],
+                "ajax": {
+                    "url": "/LichThiDau/GetData",
+                    "type": "Get",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "TenGiaiDau" },
+                    { "data": "NgayThiDau" },
+                    { "data": "VongThiDau" },
+                    { "data": "SanThiDau" },
+                    { "data": "TenDoiBongChuNha" },
+                    { "data": "TiSo" },
+                    { "data": "TenDoiBongKhach" },
+                    {
+                        "data": "MaLichThiDau", render: function (id) {
+                            var bHtml = "<div class='btn-group' role='group' aria-label='updaterecord'>";
+                            bHtml += "<button1 class='btn btn-primary' onclick=Edit(" + id + ") style='margin-right:5px;'></i>Chỉnh sửa</button1>";
+                            bHtml += "<button class='btn btn-danger'  onclick=Xoa(" + id + ") style='margin-right:5px;'>Xóa</button>";
+                            bHtml += "</div>";
+                            return bHtml;
+                        }
+                    }
+                ],
+                "language": {
+                    "url": 'https://cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json'
+                }
+            });
+        });
+        function Xoa(id) {
+            var result = confirm("Bạn có muốn xóa lịch thi đấu này?");
+            if (result) {
+                window.location.href = "@Url.Action("Xoa", "LichThiDau")?maLichThiDau=" + id;
+            }
+    }
+
+    function Edit(id) {
+        window.location.href = "@Url.Action("CapNhat", "LichThiDau")?maLichThiDau=" + id;
+    }
+    </script>
+}
+

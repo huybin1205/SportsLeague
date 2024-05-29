@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Danh sách người dùng</h3>
+            <a class="btn btn-success" style="margin-bottom: 10px"  href="/QuanLyNguoiDung/DangKy"> <i class="fa fa-plus"></i> Thêm Mới  </a>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table id="QuanLyNguoiDungTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Tên Đăng Nhập</th>
+                        <th>Avatar</th>
+                        <th>Email</th>
+                        <th>Số Điện Thoại</th>
+                        <th>Hành Động</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var dtable = $('#QuanLyNguoiDungTable').DataTable({
+            "ajax": {
+                "url": "../QuanLyNguoiDung/GetData",
+                "type": "Get",
+                "datatype": "json"
+            },
+            "columns": [
+                { "data": "TenDangNhap" },
+                {
+                    "data": "Avatar",
+                    "render": function (data, type, row) {
+                        if (data) {
+                            return "<img src='../" + data + "' alt='avatar người dùng' style='width: 50px' />";
+                        } else {
+                            return "";
+                        }
+                    }
+                },
+                { "data": "Email" },
+                { "data": "SoDienThoai" },
+                {
+                    "data": "MaNguoiDung",
+                    "render": function (id, type, row, meta) {
+                        var bHtml = "<div class='btn-group' role='group' aria-label='updaterecord'>";
+                        bHtml += "<button1 class='btn btn-primary' onclick=Edit(" + id + ") style='margin-right:5px;'></i>Chỉnh sửa</button1>";
+                        bHtml += "<button class='btn btn-danger'  onclick=Xoa(" + id + ") style='margin-right:5px;'>Xóa</button>";
+                        bHtml += "</div>";
+                        return bHtml;
+                    }
+                }
+            ],
+            "language": {
+                "url": 'https://cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json'
+            }
+        });
+    });
+
+    function Xoa(id) {
+        var result = confirm("Bạn có muốn xóa người dùng này?");
+        if (result) {
+            window.location.href = "@Url.Action("Xoa", "QuanLyNguoiDung")?maNguoiDung=" + id;
+        }
+    }
+
+    function Edit(id) {
+        window.location.href = "@Url.Action("CapNhat", "QuanLyNguoiDung")?maNguoiDung=" + id;
+    }
+</script>

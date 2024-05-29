@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "XuatPosterGiaiDau";
+    Layout = "~/Views/Shared/_LayoutPoster.cshtml";
+}
+<style>
+    body {
+        /*background: url('https://www.hdwallpapers.in/download/football_on_grass_in_stadium_light_background_hd_football-HD.jpg') no-repeat center center fixed !important;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;*/
+    }
+</style>
+<div id="pnPoster" class="btn cur-p btn-outline-warning" style="display: flex; position: fixed; z-index:10000; padding: 10px">
+    <div>
+        <span><strong>Tải poster với định dạng</strong></span>
+        <div>
+            <button style="margin-right: 10px" type="button" class="btn btn-success" onclick="downloadImage('png')" id="btnDownloadImage"><i class="fa fa-file-image-o"></i> Image</button>
+            <button type="button" class="btn btn-danger" onclick="downloadPDF()" id="btnDownloadPDF"><i class="fa fa-file-pdf-o"></i> PDF</button>
+        </div>
+    </div>
+</div>
+<script>
+    function uploadImage() {
+        debugger;
+        var input = $('#imageInput')[0];
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                var backgroundImageValue = 'url(' + e.target.result + ') no-repeat center center fixed !important';
+
+                $('body').css({
+                    'background-image': backgroundImageValue,
+                    '-webkit-background-size': 'cover',
+                    '-moz-background-size': 'cover',
+                    '-o-background-size': 'cover',
+                    'background-size': 'cover'
+                });
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function downloadPDF() {
+        $('#pnPoster').hide();
+        window.print();
+        $('#pnPoster').show();
+    }
+
+    function downloadImage(format) {
+        $('#pnPoster').hide();
+        html2canvas(document.body).then(function (canvas) {
+            imageData = canvas.toDataURL('image/' + format);
+            // Tạo một đối tượng a để tạo một liên kết tải về hình ảnh
+            var downloadLink = document.createElement('a');
+            downloadLink.href = imageData;
+            downloadLink.download = '@Model.TenGiaiDau.' + format;
+
+            // Thêm liên kết vào trang và kích hoạt sự kiện nhấp chuột để tải về
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            $('#pnPoster').show();
+        });
+    }
+</script>
+<div class="container">
+    <div class="center verticle_center">
+        <div class="error_page">
+            <div class="center">
+                <div class="error_icon" style="margin-top:50px">
+                    <img width="250" height="250" class="img-responsive" src="~/templates/images/logo/logodoibongdep.png" />
+                </div>
+            </div>
+            <br>
+            <h3>@Model.TenGiaiDau.ToUpper()</h3>
+            <p>Mùa giải: @Model.NamThucHien -  Số đội tham gia: @ViewBag.SoLuongDoiBongThamGia</p>
+            <p>Thời gian tổ chức: @Model.NgayBatDau.ToString("dd/MM/yyy") -  @Model.NgayKetThuc.ToString("dd/MM/yyy")</p>
+            <div class="center" style="display:grid">
+                <p style="text-align: center"><b><strong>Đơn vị tổ chức</strong></b></p>
+                <a class="main_bt" href="#"><b><strong>@Model.DonViToChuc</strong></b></a>
+            </div>
+        </div>
+    </div>
+    <div class="row column1">
+        <div class="col-md-12">
+            <div class="white_shd full margin_bottom_30">
+                <div class="full price_table padding_infor_info">
+                    <div class="row">
+                        @foreach (var doiBong in ViewBag.DoiBongs)
+                        {
+                            <!-- column contact -->
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
+                                <div class="contact_blog">
+                                    <h4 class="brief">Team</h4>
+                                    <div class="contact_inner">
+                                        <div class="left">
+                                            <h3>@doiBong.TenDoiBong</h3>
+                                            <p><strong>HLV: </strong>@doiBong.NguoiQuanLyCLB</p>
+                                        </div>
+                                        <div class="right">
+                                            <div class="profile_contacts">
+                                                <img class="img-responsive" src="../@doiBong.Logo" alt="#">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end column contact blog -->
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <div class="container-fluid">
+        <div class="footer">
+            <p>
+                Copyright © 2023 Designed by <a href="https://www.facebook.com/profile.php?id=100003155087855">Phụng Huỳnh.</a><br>
+            </p>
+        </div>
+    </div>
+</div>

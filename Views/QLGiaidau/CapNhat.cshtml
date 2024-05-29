@@ -1,0 +1,331 @@
+﻿@model SportsLeague.Models.QuanLyGiaiDau
+
+@{
+    ViewBag.Title = "CapNhat";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*<h3>CapNhat</h3>*@
+
+<style>
+    .logo_login {
+        background: url('https://img.freepik.com/premium-vector/soccer-template-design-football-banner-sport-layout-design-vector-illustration_42237-1097.jpg')
+    }
+</style>
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2></h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- invoice section -->
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2><i class="fa fa-file-text-o"></i> Cập nhật giải đấu</h2>
+                </div>
+            </div>
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <form id="formCapNhat" action="@Url.Action("QL", "QLGiaidau")" method="post">
+                                    @Html.HiddenFor(model => model.MaGiaiDau)
+                                    <fieldset>
+                                        <div class="field">
+                                            <label class="label_field">Tên giải đấu</label>
+                                            <input type="text" class="form-control" name="TenGiaiDau" placeholder="Tên giải đấu" value="@Model.TenGiaiDau" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Năm thực hiện</label>
+                                            <input type="datetime" class="form-control" name="NamThucHien" placeholder="Năm thực hiện" value="@Model.NamThucHien" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Đơn vị tổ chức</label>
+                                            <input type="text" class="form-control" name="DonViToChuc" placeholder="Đơn vị tổ chức" value="@Model.DonViToChuc" />
+                                        </div>
+                                        <div class="field">
+                                            <label class="label_field">Số lượng đội tham gia</label>
+                                            <input type="number" class="form-control" name="SoLuongDoiThamGia" placeholder="Số lượng đội tham gia" value="@Model.SoLuongDoiThamGia" />
+                                        </div>
+                                        @*<div class="field">
+                                            <label class="label_field">Ngày bắt đầu</label>
+                                            <input type="date" class="form-control" name="NgayBatDau" placeholder="Ngày bắt đầu" value="@Model.NgayBatDau" />
+                                        </div>*@
+
+                                        <div class="field">
+                                            <label class="label_field">Ngày bắt đầu</label>
+                                            @if (Model.NgayBatDau.HasValue)
+                                            {
+                                                <input type="date" class="form-control" name="NgayBatDau" placeholder="Ngày bắt đầu" value="@Model.NgayBatDau.Value.ToString("yyyy-MM-dd")" />
+                                            }
+                                            else
+                                            {
+                                                <input type="date" class="form-control" name="NgayBatDau" placeholder="Ngày bắt đầu" />
+                                            }
+                                        </div>
+                                          <div class="field">
+                                              <label class="label_field">Ngày kết thúc</label>
+                                            @if (Model.NgayKetThuc.HasValue)
+                                            {
+                                                <input type="date" class="form-control" name="NgayKetThuc" placeholder="Ngày kết thúc" value="@Model.NgayKetThuc.Value.ToString("yyyy-MM-dd")" />
+                                            }
+                                            else
+                                            {
+                                                <input type="date" class="form-control" name="NgayKetThuc" placeholder="Ngày kết thúc" />
+                                            }
+                                        </div>
+
+
+                                        @*<div class="field">
+                                            <label class="label_field">Ngày kết thúc</label>
+                                            <input type="date" class="form-control" name="NgayKetThuc" placeholder="Ngày kết thúc" value="@Model.NgayKetThuc" />
+                                        </div>*@
+
+                                        <div class="field margin_0">
+                                            <input class="btn btn-success" style="margin-top: 5px; margin-bottom: 5px" type="button" id="btnCapNhat" value="Cập nhật" />
+                                            <a href="@Url.Action("Index","QLGiaidau")"><span class="btn btn-danger">Quay lại</span></a>
+                                            <input class="btn btn-info" style="margin-top: 5px; margin-bottom: 5px" type="button" id="btnTaoLichThiDau" value="Tạo lịch thi đấu tự động" />
+                                            <a href="@Url.Action("XemBXH","LichThiDau", new { maGiaiDau = Model.MaGiaiDau})"><span class="btn btn-warning">Xem bảng xếp hạng</span></a>
+                                            <a href="@Url.Action("XemDanhHieuCauThu", "LichThiDau", new {maGiaiDau = Model.MaGiaiDau })" class="btn btn-info">Xem Danh Hiệu</a>
+                                            <a href="@Url.Action("XuatFileExcel", "LichThiDau", new {maGiaiDau = Model.MaGiaiDau })" class="btn btn cur-p btn-secondary">Xuất kết quả</a>
+                                            <a title="Xem ma trận giải đấu" href="@Url.Action("XemMaTranGiaiDau", "LichThiDau", new {maGiaiDau = Model.MaGiaiDau })" class="btn btn cur-p btn-outline-primary">Xem ma trận giải đấu</a>
+                                            <a title="Xem poster giải đấu" href="@Url.Action("XuatPosterGiaiDau", new {maGiaiDau = Model.MaGiaiDau })" class="btn btn cur-p btn-outline-secondary">Xem poster giải đấu</a>
+                                            <a title="Tạo giải đấu theo bảng" href="@Url.Action("XuatPosterGiaiDau", new {maGiaiDau = Model.MaGiaiDau })" class="btn btn cur-p btn-outline-secondary">Tạo giải đấu theo bảng</a>
+                                        </div>
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- invoice section -->
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2><i class="fa fa-file-text-o"></i> Đội bóng tham gia</h2>
+                </div>
+            </div>
+            <div class="full">
+                <div class="invoice_inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <form id="formThemDoiBong">
+                                    @Html.HiddenFor(model => model.MaGiaiDau)
+                                    <fieldset>
+                                        <div class="field">
+                                            <label class="label_field">Đội bóng</label>
+                                            <select name="MaCLB" class="chzn-select" style="width:200px;">
+                                                @foreach (var doibong in ViewBag.DSDoiBong)
+                                                {
+                                                    <option value="@doibong.MaDoiBong">@doibong.TenDoiBong</option>
+                                                }
+                                            </select>
+                                            <input class="btn btn-danger" id="btnThemDoiBong" style="margin-top: 5px; width: 50px" title="Thêm đội bóng" value="+" />
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="full invoice_blog padding_infor_info padding-bottom_0">
+                                <span>Đội bóng tham gia</span>
+                                <table id="DoiBongTable" class="display">
+                                    <thead>
+                                        <tr>
+                                            <th>Logo</th>
+                                            <th>Tên Đội Bóng</th>
+                                            <th>Người quản lý CLB</th>
+                                            <th>Hành Động</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#btnCapNhat').click(function () {
+            // Hiển thị lên cái đang xử lý
+            ShowLoading();
+
+            $.ajax({
+                url: '@Url.Action("CapNhat", "QLGiaidau")',
+                async: true,
+                type: "POST",
+                timeout: 60000,
+                data: $('#formCapNhat').serialize() // public ActionResult DangKy(NguoiDung nguoiDung) => data là nguoiDung
+            }).done(function (response, textStatus, jqXHR) {
+                // Thành công
+                //return Json(new
+                //    {
+                //        result = true,
+                //        message = "Đăng ký thành công"
+                //    }, JsonRequestBehavior.AllowGet);
+
+                if (response.result) {
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    funcPrompt('Request time out', '', 'error');
+                } else {
+                    funcPrompt(textStatus, errorThrown, 'error');
+                }
+            }).always(function () {
+                CloseLoading();
+            });
+        });
+
+        $('#btnTaoLichThiDau').click(function () {
+            // Hiển thị lên cái đang xử lý
+            ShowLoading();
+
+            $.ajax({
+                url: '@Url.Action("TaoLichThiDauHangLoat", "LichThiDau")',
+                async: true,
+                type: "POST",
+                timeout: 60000,
+                data: $('#formCapNhat').serialize()
+            }).done(function (response, textStatus, jqXHR) {
+                if (response.result) {
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    funcPrompt('Request time out', '', 'error');
+                } else {
+                    funcPrompt(textStatus, errorThrown, 'error');
+                }
+            }).always(function () {
+                CloseLoading();
+            });
+        });
+
+        $('#btnThemDoiBong').click(function () {
+            // Hiển thị lên cái đang xử lý
+            ShowLoading();
+
+            $.ajax({
+                url: '@Url.Action("Them", "QuanLyCLBVaGiaiDau")',
+                async: true,
+                type: "POST",
+                timeout: 60000,
+                data: $('#formThemDoiBong').serialize() // public ActionResult DangKy(NguoiDung nguoiDung) => data là nguoiDung
+            }).done(function (response, textStatus, jqXHR) {
+                // Thành công
+                //return Json(new
+                //    {
+                //        result = true,
+                //        message = "Đăng ký thành công"
+                //    }, JsonRequestBehavior.AllowGet);
+
+                if (response.result) {
+                    $('#DoiBongTable').DataTable().ajax.reload();
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    funcPrompt('Request time out', '', 'error');
+                } else {
+                    funcPrompt(textStatus, errorThrown, 'error');
+                }
+            }).always(function () {
+                CloseLoading();
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    var dtable;
+    $(document).ready(function () {
+        var dtable = $('#DoiBongTable').DataTable({
+            //"processing": true,
+            //"serverSide": true,
+            "ajax": {
+                "url": "@Url.Action("GetData","QuanLyCLBVaGiaiDau", new { maGiaiDau=Model.MaGiaiDau })",
+                "type": "Get",
+                "datatype": "json"
+            },
+            "columns": [
+              /*  { "data": "MaDoiBong" },*/
+                {
+                    "data": "Logo",
+                    "render": function (data, type, row) {
+                        if (data) {
+                            return "<img src='../"+data+"' alt='Logo đội bóng' style='width: 50px' />";
+                        }
+                    }
+                },
+                { "data": "TenDoiBong" },
+                { "data": "NguoiQuanLyCLB" },
+                {
+                    "data": "MaDoiBong", render: function (id) {
+                        var bHtml = "<div class='btn-group' role='group' aria-label='updaterecord'>";
+                        /*bHtml += "<button1 class='btn btn-primary' onclick=Edit(" + id + ") style='margin-right:5px;'></i>Chỉnh sửa</button1>";*/
+                        bHtml += "<button title='Xóa đội bóng' class='btn btn-danger'  onclick=Xoa(" + id + ") style='margin-right:5px;'>Xóa</button>";
+                        bHtml += "</div>";
+                        return bHtml;
+                    }
+                }
+
+            ],
+            "language": {
+                "url": 'https://cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json'
+            }
+        });
+
+    });
+
+
+    function Xoa(id) {
+        var result = confirm("Bạn có muốn xóa đội bóng này?");
+        if (result) {
+            window.location.href = "@Url.Action("Xoa", "QuanLyCLBVaGiaiDau")?maGiaiDau=" + @Model.MaGiaiDau +"&maCLB=" + id;
+        }
+    }
+
+    function Edit(id) {
+        window.location.href = "@Url.Action("CapNhat", "DoiBong")?maDoiBong=" + id;
+    }
+
+
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $(".chzn-select").chosen();
+    });
+</script>
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
